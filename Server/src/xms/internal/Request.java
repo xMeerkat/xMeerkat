@@ -1,15 +1,18 @@
 package xms.internal;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.Iterator;
 
 public final class Request {
 
-    private String req = null;
+    private final String req;
     private String method = null;
     private String url = null;
     private String httpVersion = null;
-    private HashMap<String,String> attributes;
+    private final HashMap<String,String> attributes;
+
 
     public Request (String req) {
         this.req = req;
@@ -24,10 +27,10 @@ public final class Request {
         if(firstLineSplit.length==3){
             method = firstLineSplit[0];
             httpVersion = firstLineSplit[2];
-            if(method.equals("POST")){
+            if (method.equals("POST")){
                 url = firstLineSplit[1];
                 setAttributes(temp[temp.length-1]);
-            } else if(method.equals("GET")){
+            } else if (method.equals("GET")) {
                 String[] arr=firstLineSplit[1].split("[?]");
                 if(arr.length==2){
                     url=arr[0];
@@ -41,11 +44,11 @@ public final class Request {
         }
     }
 
-    public Iterator getAttributeIterator () {
+    public @NotNull Iterator getAttributeIterator () {
         return attributes.keySet().iterator();
     }
 
-    private void setAttributes (String rawAttributes) {
+    private void setAttributes (@NotNull String rawAttributes) {
         String[] attribs=rawAttributes.split("&");
         for(int i=0;i<attribs.length;i++){
             String[] attr=attribs[i].split("=");
@@ -55,7 +58,7 @@ public final class Request {
         }
     }
 
-    public String getAttribute (String key) {
+    public @NotNull String getAttribute (@NotNull String key) {
         String ret = attributes.get(key);
         if(ret == null) {
             return "null";
@@ -63,23 +66,27 @@ public final class Request {
         return ret;
     }
 
-    public void setAttribute (String key, String value) {
+    public void setAttribute (@NotNull String key, @NotNull String value) {
         attributes.put(key, value);
     }
 
-    public String getMethod () {
+    public @NotNull String getMethod () {
+        assert method != null;
         return method;
     }
 
-    public String getHttpVersion () {
+    public @NotNull String getHttpVersion () {
+        assert httpVersion != null;
         return httpVersion;
     }
 
-    public String getUrl () {
+    public @NotNull String getUrl () {
+        assert url != null;
         return url;
     }
 
-    public String toString (){
+    public @NotNull String toString () {
+        assert req != null;
         return req;
     }
 }

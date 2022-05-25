@@ -1,5 +1,7 @@
 package xms.internal;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,7 +10,7 @@ import java.util.Iterator;
 
 public class Mappings {
 
-    HashMap<String, AbstractResponse> urlMappings;
+    private final HashMap<String, AbstractResponse> urlMappings;
 
     public Mappings () {
         urlMappings = new HashMap<String, AbstractResponse>();
@@ -22,30 +24,34 @@ public class Mappings {
         urlMappings.put(method + "_" + url, resp);
     }
 
-    public void addMap (String method, String url, String filepath) throws IOException {
-        urlMappings.put(method+"_"+url,new AbstractResponse(){
+    public void addMap (String method, String url, String filepath, String code, String type) throws IOException {
+        urlMappings.put(method+"_"+url, new AbstractResponse() {
             @Override
             public Response getResponse(Request req) {
-                String res = "";
+                StringBuilder res = new StringBuilder();
                 try{
                     FileReader fr = new FileReader(filepath);
                     int c;
-                    for(c=fr.read();c!=-1;c=fr.read()){
-                        res+=(char)c;
+                    for(c = fr.read(); c!=-1; c=fr.read()) {
+                        res.append((char) c);
                     }
                 } catch (FileNotFoundException fnfe){
-                    return new Response("<html><body>Unable to find resource ["+url+"]</body></html>", "500 Internal Server Error", "text/html");
+                    return new Response("<html><body><p>Unable to find resource ["+url+"]</p></body></html>", "500 Internal Server Error", "text/html");
                 } catch (IOException ioe){
-                    return new Response("<html><body>Unable to read resource ["+url+"]</body></html>", "500 Internal Server Error", "text/html");
+                    return new Response("<html><body><p>Unable to read resource ["+url+"]</p></body></html>", "500 Internal Server Error", "text/html");
                 }
-                res = replaceRequestAttribute(res,req);
-                Response resp = new Response(res, "200 OK", "text/html");
+                res = new StringBuilder(replaceRequestAttribute(res.toString(), req));
+
+
+                Response resp = new Response(res.toString(), code, type);
+                // code = 200 OK"
+                // type = "text/html"
                 return resp;
             }
         });
     }
 
-    private String replaceRequestAttribute (String res, Request req){
+    private @NotNull String replaceRequestAttribute (@NotNull String res, @NotNull Request req){
         Iterator itr = req.getAttributeIterator();
         while(itr.hasNext()) {
             String key = (String) itr.next();
@@ -55,8 +61,8 @@ public class Mappings {
         return res;
     }
 
-    private int indexOfAfter (String str,String toSearch,int after){
-        str=str.substring(after);
-        return after+str.indexOf(toSearch);
+    private @NotNull Integer indexOfAfter (@NotNull String str, @NotNull String toSearch, @NotNull Integer after){
+        str = str.substring(after);
+        return after + str.indexOf(toSearch);
     }
 }

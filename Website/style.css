@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap");
+
+/* Settings apply to everything inside <html> */
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Settings apply to everything inside <body> */
+body {
+    margin: 0;
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000000;
+}
+
+
+/* Settings apply to everything inside <article>, <aside>, continue... */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}
+
+
+
+/* Settings apply to everything inside <audio>, <canvas>, continue... */
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+
+
+/* Settings apply to everything inside <audio:not> */
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/* Settings apply to everything inside <template> */
+[hidden],
+template {
+    display: none;
+}
+
+
+
+/* Settings apply to everything inside <a> (Links) */
+a {
+    background-color: transparent;
+    color: #1e6bb8;
+    text-decoration: none;
+}
+
+
+
+/* Settings apply to everything inside <a> (Links) */
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* Settings apply to everything inside <abbr> */
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/* Settings apply to everything inside <b> (Bold text) */
+b,
+strong {
+    font-weight: bold;
+}
+
+/* Settings apply to everything inside <dfn> */
+dfn {
+    font-style: italic;
+}
+
+/* Settings apply to everything inside <h1> */
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+/* Settings apply to everything inside <mark> */
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/* Settings apply to everything inside <small> */
+small {
+    font-size: 80%;
+}
+
+/* Settings apply to everything inside <sub> or <sup> (Subscript, Superscript) */
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+/* Settings apply to everything inside <sup> (Superscript) */
+sup {
+    top: -0.5em;
+}
+
+/* Settings apply to everything inside <sup> (Subscript) */
+sub {
+    bottom: -0.25em;
+}
+
+/* Settings apply to everything inside <img> (Image) */
+img {
+    border: 0;
+}
+
+/* Settings apply to everything inside <svg> */
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* Settings apply to everything inside <figure> */
+figure {
+    margin: 1em 40px;
+}
+
+/* Settings apply to everything inside <hr> */
+hr {
+    box-sizing: content-box;
+    height: 0;
+}
+
+/* Settings apply to everything inside <pre> */
+pre {
+    overflow: auto;
+}
+
+/* Settings apply to everything inside <code> */
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace;
+    font-size: 1em;
+}
+
+/* Settings apply to everything inside <button> */
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+/* Settings apply to everything inside <button> */
+button {
+    overflow: visible;
+}
+
+/* Settings apply to everything inside <button> */
+button,
+select {
+    text-transform: none;
+}
+
+/* Settings apply to everything inside <button> */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+/* Settings apply to everything inside <button> */
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/* Settings apply to everything inside <button> */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}

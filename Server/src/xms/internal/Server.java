@@ -1,51 +1,58 @@
 package xms.internal;
 
+import org.jetbrains.annotations.NotNull;
+import xms.analytics.Reqs;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public final class Server {
+public final @NotNull class Server {
 
-    private int PORT;
-    private ServerSocket server;
+    private @NotNull Integer PORT;
+    private @NotNull ServerSocket server;
     private Socket client;
-    private Mappings mappings;
+    private @NotNull Mappings mappings;
 
-    public Server(int PORT, Mappings mappings) throws IOException {
+    public Server (@NotNull Integer PORT, @NotNull Mappings mappings) throws IOException {
         this.PORT = PORT;
         server = new ServerSocket(PORT);
         this.mappings = mappings;
     }
 
-    public Request accept() throws IOException {
+    public @NotNull Request accept () throws IOException {
+
+        Reqs.Companion.increm(1);
+
         client = server.accept();
-        InputStream is=client.getInputStream();
+        InputStream is = client.getInputStream();
         int c;
-        String raw = "";
+        StringBuilder raw = new StringBuilder();
         do {
             c = is.read();
-            raw+=(char)c;
-        } while(is.available()>0);
-        Request request = new Request(raw);
+            raw.append((char) c);
+        } while (is.available() > 0);
+
+        final Request request = new Request(raw.toString());
         return request;
     }
 
-    public void shut() throws IOException {
+    public void shut () throws IOException {
         server.close();
     }
 
-    private Response getResponse(Request req) {
+    private @NotNull Response getResponse (@NotNull Request req) {
         AbstractResponse respAbs = mappings.getMap(req.getMethod()+"_"+req.getUrl());
-        if(respAbs == null) {
-            return new Response("<html><body><font color='red' size='2'>Invalid URL/method</font><br>URL: "+ req.getUrl() +"<br>method: "+ req.getMethod() +"</body></html>", "404 Not Found", "text/html");
+        if (respAbs == null) {
+            return new Response("<html><body><h1>404 Not Found</h1><font color='red' size='2'>Invalid URL/method</font><br>URL: "+ req.getUrl() +"<br>method: "+ req.getMethod() +"</body></html>", "404 Not Found", "text/html");
         }
-        Response resp = respAbs.getResponse(req);
+        final Response resp = respAbs.getResponse(req);
         return resp;
     }
 
-    public void sendResponse(Request req) throws IOException {
+    public void sendResponse (@NotNull Request req) throws IOException {
         Response resp = getResponse(req);
         OutputStream out = client.getOutputStream();
         out.write(resp.toString().getBytes());
