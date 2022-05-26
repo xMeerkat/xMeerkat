@@ -4,6 +4,8 @@ import xms.internal.AbstractResponse
 import xms.internal.Mappings
 import xms.internal.Request
 import xms.internal.Response
+import xms.website.files.index
+import xms.website.files.httpcodes.`404`
 import java.io.FileReader
 
 object MAPS {
@@ -20,7 +22,12 @@ object MAPS {
 
 
         // 404
-        mappings.addMap("GET", "/404", "404.html", "404 Not Found", "text/html")
+        mappings.addMap("GET", "/404", object : AbstractResponse () {
+            override fun getResponse(request: Request): Response {
+                val res : String = `404`.Compile()
+                return Response(res, "404 Not Found", "text/html")
+            }
+        })
 
 
         // Discord server
@@ -73,7 +80,11 @@ object MAPS {
         })
 
         // xMeerkat.com
-        mappings.addMap("GET", "/", "index.html", "200 OK", "text/html")
+        mappings.addMap("GET", "/", object : AbstractResponse() {
+            override fun getResponse(req: Request): Response {
+                return index.response()
+            }
+        })
 
 
 

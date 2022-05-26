@@ -16,6 +16,7 @@ body {
     font-size: 16px;
     line-height: 1.5;
     color: #000000;
+    background: url("https://raw.githubusercontent.com/xMeerkat/official-assets/master/assets/BACKGROUND_1.jpeg");
 }
 
 
@@ -35,6 +36,11 @@ section,
 summary {
     display: block;
 }
+
+details {
+    color: #FFFFFF;
+}
+
 
 
 
@@ -720,6 +726,7 @@ a:hover {
         font-size: 1rem;
     }
 }
+
 
 .main-content {
     word-wrap: break-word;
