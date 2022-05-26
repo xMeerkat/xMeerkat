@@ -16,7 +16,7 @@ object stylesheet {
 
             val toR = line.replace("\n", "").replace("\t", "")
 
-            if (toR.startsWith("<!--") && toR.endsWith("-->")) {
+            if (toR.startsWith("/*") && toR.endsWith("*/")) {
                 continue
             }
             output.append(toR)
@@ -24,4 +24,16 @@ object stylesheet {
 
         return output.toString()
     }
+
+    @JvmStatic fun getCompiled () : String {
+
+        val output : StringBuilder = StringBuilder()
+        output.append("<style>")
+        output.append(stylesheet.getMinified())
+        output.append("</style>")
+
+        return output.toString()
+    }
+
+
 }

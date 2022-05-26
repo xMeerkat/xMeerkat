@@ -8,7 +8,7 @@ import java.util.*
 object Construct {
 
     /** Construct the response */
-    fun CompileResp (@NotNull resp : String, @NotNull responseCode: String, @NotNull type : String, @NotNull cacheControl: String) : Response {
+    @JvmStatic fun CompileResp (@NotNull resp : String, @NotNull responseCode: String, @NotNull type : String, @NotNull cacheControl: String) : Response {
 
         val StringResp : String = grabPreResp(resp.length, responseCode, type, cacheControl) + resp
 
@@ -17,13 +17,13 @@ object Construct {
 
 
     /** Construct the pre-response (Start and headers) */
-    fun grabPreResp (@NotNull RespLenth : Int, @NotNull responseCode : String, @NotNull type : String, @NotNull cacheControl : String): String {
+    @JvmStatic fun grabPreResp (@NotNull RespLenth : Int, @NotNull responseCode : String, @NotNull type : String, @NotNull cacheControl : String): String {
         return grabStart(responseCode) + grabHeaders(RespLenth, type, cacheControl)
     }
 
 
     /** Construct HTTP start, meaning the version and the HTTP code. */
-    fun grabStart (@NotNull responseCode : String) : String {
+    @JvmStatic fun grabStart (@NotNull responseCode : String) : String {
 
         val starts : StringBuilder = StringBuilder()
 
@@ -37,7 +37,7 @@ object Construct {
 
 
     /** Construct headers */
-    fun grabHeaders (@NotNull RespLenth : Int, @NotNull type : String, @NotNull cacheControl : String) : String {
+    @JvmStatic fun grabHeaders (@NotNull RespLenth : Int, @NotNull type : String, @NotNull cacheControl : String) : String {
 
         val date : Date = Date()
         val headers : StringBuilder = StringBuilder()
@@ -55,5 +55,22 @@ object Construct {
     }
 
 
+    /** Minify HTML to one line. */
+    @JvmStatic fun MinifyHTML (@NotNull html : String) : String {
 
+        val output : StringBuilder = StringBuilder()
+        val ary : List<String> = html.split("\n")
+
+        for (line in ary) {
+
+            val toR = line.replace("\n", "").replace("\t", "")
+
+            if (toR.startsWith("<!--") && toR.endsWith("-->")) {
+                continue
+            }
+            output.append(toR)
+        }
+
+        return output.toString()
+    }
 }

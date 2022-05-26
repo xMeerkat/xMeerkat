@@ -9,6 +9,8 @@ object lookingFor {
             "footer" -> footer.getMinified()
             "header" -> header.getMinified()
             "alert" -> alertjs.getCompiled()
+            "meta" -> meta.getMinified()
+            "style" -> stylesheet.getCompiled()
             else -> "Server Error."
         }
 
