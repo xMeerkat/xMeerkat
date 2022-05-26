@@ -56,6 +56,26 @@ object MAPS {
             }
         })
 
+        // Mailto
+        mappings.addMap("GET", "/mailto", object : AbstractResponse() {
+            override fun getResponse(req: Request): Response {
+                val res : String = """
+                <html>    
+                    <script>
+                    
+                    window.location = "mailto:xMeerkat.com@gmail.com";
+                    
+                    </script>
+                </html>
+                """
+                return Response(res, "200 OK", "text/html")
+            }
+        })
+
+        // xMeerkat.com
+        mappings.addMap("GET", "/", "index.html", "200 OK", "text/html")
+
+
 
         /*
         mappings.addMap("GET", "/", "./html/index.html", "200 OK", "text/html")
