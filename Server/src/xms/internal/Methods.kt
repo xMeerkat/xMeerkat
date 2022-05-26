@@ -15,7 +15,8 @@ enum class Methods {
 
     companion object {
 
-        fun fromString(method: String): Methods {
+        @JvmStatic fun fromString (method: String): Methods {
+
             return when (method.uppercase()) {
                 "GET" -> GET
                 "HEAD" -> HEAD
@@ -28,6 +29,7 @@ enum class Methods {
                 "PATCH" -> PATCH
                 else -> throw IllegalArgumentException("Unknown method: $method")
             }
+
         }
     }
 

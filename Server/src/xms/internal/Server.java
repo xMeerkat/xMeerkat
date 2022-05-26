@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import xms.MAPS;
 
 public final @NotNull class Server {
 
@@ -44,9 +45,9 @@ public final @NotNull class Server {
     }
 
     private @NotNull Response getResponse (@NotNull Request req) {
-        AbstractResponse respAbs = mappings.getMap(req.getMethod()+"_"+req.getUrl());
+        AbstractResponse respAbs = mappings.getMap(req.getMethod() + "_" + req.getUrl());
         if (respAbs == null) {
-            return new Response("<html><body><h1>404 Not Found</h1><font color='red' size='2'>Invalid URL/method</font><br>URL: "+ req.getUrl() +"<br>method: "+ req.getMethod() +"</body></html>", "404 Not Found", "text/html");
+            return MAPS.getResponse_404();
         }
         final Response resp = respAbs.getResponse(req);
         return resp;
