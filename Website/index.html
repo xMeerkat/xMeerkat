@@ -75,10 +75,8 @@
 
 <main id="content" class="main-content" role="main">
 
-	<!-- Minified alert.js -->
-	<script>
-		fetch(`https://raw.githubusercontent.com/xMeerkat/xMeerkat/master/Website/status.json?updated=${Date.now()}`).then(t=>t.json()).then(async data=>{if(eval(await(await fetch("https://unpkg.com/sweetalert2")).text()),swal){const t=Swal.mixin({icon:"info",showCancelButton:!0,toast:!1,confirmButtonText:"I am 18+",cancelButtonText:"I am not 18+"});if(!(await t.fire("xMeerkat","This website is not for anyone under the age of 18.")).value)return window.open(window.location.href+"404",""),await new Promise(t=>setTimeout(t,1e3)),window.close();document.getElementById("MainImg").src="https://raw.githubusercontent.com/x-Meerkat/main-image-xmeerkat/Image/img/assets/xm.jpeg"}});
-	</script>
+	<!-- See alert.js -->
+@java:alert
 
 
 	<h1 align="center">

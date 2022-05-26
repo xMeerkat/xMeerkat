@@ -8,6 +8,7 @@ object lookingFor {
             "contactus" -> contactus.getMinified()
             "footer" -> footer.getMinified()
             "header" -> header.getMinified()
+            "alert" -> alertjs.getCompiled()
             else -> "Server Error."
         }
 
