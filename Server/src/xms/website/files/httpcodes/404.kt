@@ -5,7 +5,7 @@ import java.io.FileReader
 
 object `404` {
 
-    @JvmStatic val htmlContents : String = FileReader("404.html").readText()
+    @JvmStatic val htmlContents : String = FileReader("error/404.html").readText()
 
     @JvmStatic fun Compile () : String {
 

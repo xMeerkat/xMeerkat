@@ -28,10 +28,9 @@ object alertjs {
     @JvmStatic fun getCompiled () : String {
 
         val builder : StringBuilder = StringBuilder()
-        builder.append("<script>\n")
-        builder.append("\t")
+        builder.append("<script>")
         builder.append(this.getMinified())
-        builder.append("\n</script>")
+        builder.append("</script>")
 
         return builder.toString()
     }

@@ -5,7 +5,7 @@ import java.io.FileReader
 /** global_footer */
 object footer {
 
-    @JvmStatic val htmlContents : String = FileReader("global_footer.html").readText()
+    @JvmStatic val htmlContents : String = FileReader("global/global_footer.html").readText()
 
     @JvmStatic fun getMinified () : String {
 

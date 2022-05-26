@@ -17,6 +17,8 @@ object index {
         val output : StringBuilder = StringBuilder()
         val ary : List<String> = this.htmlContents.split("\n")
 
+        output.append("<!-- Our software, xMeerkat, is open source at https://github.com/xMeerkat -->\n")
+
         for (line in ary) {
 
             val toR = line.replace("\n", "").replace("\t", "")
@@ -29,9 +31,9 @@ object index {
             }
             else if (toR.startsWith("@java")) {
                 output.append(lookingFor.LookingFor(toR))
+            } else {
+                output.append(toR)
             }
-
-            output.append(toR)
         }
 
         return output.toString()

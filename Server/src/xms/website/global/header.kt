@@ -5,7 +5,7 @@ import java.io.FileReader
 /** global_header */
 object header {
 
-    @JvmStatic val htmlContents : String = FileReader("global_header.html").readText()
+    @JvmStatic val htmlContents : String = FileReader("global/global_header.html").readText()
 
     @JvmStatic fun getMinified () : String {
 
