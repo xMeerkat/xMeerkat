@@ -1,10 +1,10 @@
 package xms.website.video
 
 import org.jetbrains.annotations.NotNull
-import v.Video
+import xms.v.Video
 import xms.internal.Response
 import xms.website.Construct
-import xms.website.global.lookingFor
+import xms.website.global.A_lookingFor
 import java.io.FileReader
 
 object VidPage {
@@ -35,7 +35,7 @@ object VidPage {
                 continue
             }
             else if (toR.startsWith("@java")) {
-                output.append(lookingFor.LookingFor(toR))
+                output.append(A_lookingFor.LookingFor_Video(toR, video))
             } else {
                 output.append(toR)
             }
@@ -45,8 +45,8 @@ object VidPage {
     }
 
 
-    @JvmStatic fun response () : Response {
-        return Construct.CompileResp(this.Compile(), "200 OK", "text/html", "no-cache")
+    @JvmStatic fun response (@NotNull video : Video) : Response {
+        return Construct.CompileResp(this.Compile(video), "200 OK", "text/html", "no-cache")
     }
 
 

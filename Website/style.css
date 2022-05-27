@@ -45,7 +45,7 @@ details {
 
 
 .global-header {
-	background-color: #ffffff;
+	background-color: #000000;
 	border-bottom: 1px solid #e5e5e5;
 	padding: 0.5em 0;
 	position: fixed;
@@ -54,6 +54,23 @@ details {
 	z-index: 100;
 }
 
+
+.NavBarBtn {
+    background-color: #000000;
+    color: #FF9900;
+    z-index: 101;
+}
+
+
+.XMv {
+    width: 100%;
+    height: 100%;
+}
+
+
+.WhiteBoy {
+    color: #FFFFFF;
+}
 
 
 /* Settings apply to everything inside <audio>, <canvas>, continue... */

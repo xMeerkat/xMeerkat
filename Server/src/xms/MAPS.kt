@@ -4,11 +4,13 @@ import xms.internal.AbstractResponse
 import xms.internal.Mappings
 import xms.internal.Request
 import xms.internal.Response
+import xms.v.Test_Video.test
 import xms.website.files.index
 import xms.website.files.httpcodes.`404`
 import xms.website.external.discord
 import xms.website.external.mailto
 import xms.website.external.twitter
+import xms.website.video.VidPage
 
 object MAPS {
 
@@ -58,6 +60,14 @@ object MAPS {
         mappings.addMap("GET", "/", object : AbstractResponse() {
             override fun getResponse(req: Request): Response {
                 return index.response()
+            }
+        })
+
+
+        // xMeerkat.com
+        mappings.addMap("GET", "/videos/test", object : AbstractResponse() {
+            override fun getResponse(req: Request): Response {
+                return VidPage.response(test)
             }
         })
 

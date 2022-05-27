@@ -76,6 +76,7 @@ object Construct {
     }
 
 
+    /** Minify CSS to one line */
     @JvmStatic fun MinifyCSS (@NotNull css : String) : String {
 
         val output : StringBuilder = StringBuilder()

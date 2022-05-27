@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-	<title>xMeerkat</title>
+	<title>
+		@java:video_title
+		&nbsp;&spar;&nbsp;[xMeerkat]
+	</title>
 
 	<!-- Meta Tags -->
-@java:meta
+	@java:meta
 
 
 
 
 	<!-- Stylesheet -->
-@java:style
+	@java:style
 
 
 	<!-- Favicon -->
@@ -37,20 +40,52 @@
 
 <main id="content" class="main-content" role="main">
 
-	<!-- See alert.js -->
-@java:alert
+	<!-- See videoalert.js -->
+	@java:video_alert
 
 
 	<h1 align="center">
-		xMeerkat
+		<strong>
+			@java:video_title
+		</strong>
 	</h1>
-	<p align="center">
-		<img id="MainImg" src="https://raw.githubusercontent.com/xMeerkat/official-assets/master/assets/verifyWithJS.png" />
+
+	@java:video_uploader
+
+
+
+	<!-- VIDEO -->
+	<h4 align="center">
+	<video id="Video" class="XMv" controls> <!-- https://en.wikipedia.org/wiki/List_of_common_resolutions -->
+
+		<source src="https://raw.githubusercontent.com/xMeerkat/official-assets/master/assets/verifyWithJS.mp4"
+				type="video/mp4">
+
+	</video>
+	</h4>
+
+
+	<p class="WhiteBoy">
+		@java:video_description
 	</p>
 
-@java:ContactUs
+
 
 	<br>
+
+
+	<p class="WhiteBoy">
+		<small>
+		Uploaded on&nbsp;
+		@java:video_date
+		</small>
+	</p>
+
+	<small class="WhiteBoy">
+		Video ID:&nbsp;
+		@java:video_id
+	</small>
+
 
 @java:footer
 

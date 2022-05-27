@@ -2,7 +2,7 @@ package xms.website.files
 
 import xms.internal.Response
 import xms.website.Construct
-import xms.website.global.lookingFor
+import xms.website.global.A_lookingFor
 import java.io.FileReader
 
 /** global_index */
@@ -30,7 +30,7 @@ object index {
                 continue
             }
             else if (toR.startsWith("@java")) {
-                output.append(lookingFor.LookingFor(toR))
+                output.append(A_lookingFor.LookingFor(toR))
             } else {
                 output.append(toR)
             }
