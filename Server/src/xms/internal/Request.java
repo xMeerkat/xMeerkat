@@ -1,6 +1,7 @@
 package xms.internal;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -70,7 +71,7 @@ public final class Request {
         attributes.put(key, value);
     }
 
-    public @NotNull String getMethod () {
+    public String getMethod () {
         assert method != null;
         return method;
     }
