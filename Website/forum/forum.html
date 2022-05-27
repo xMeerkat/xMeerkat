@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>
+		@java:video_title
+		&nbsp;&spar;&nbsp;[xMeerkat]
+	</title>
+
+	<!-- Meta Tags -->
+	@java:meta
+
+
+
+
+	<!-- Stylesheet -->
+	@java:style
+
+
+	<!-- Favicon -->
+	<link rel="icon" type="image" href="https://raw.githubusercontent.com/xMeerkat/official-assets/master/assets/LOGO.png" />
+
+
+</head>
+<body>
+
+
+@java:header
+
+
+<header class="page-header" role="banner">
+	<h1 class="project-name">
+		xMeerkat
+	</h1>
+	<h2 class="project-tagline">
+		Free Meerkat Videos on xMeerkat.com!
+	</h2>
+
+
+</header>
+
+<main id="content" class="main-content" role="main">
+
+	<!-- See videoalert.js -->
+	@java:video_alert
+
+
+	<h1 align="center">
+		<strong>
+			@java:video_title
+		</strong>
+	</h1>
+
+	@java:video_uploader
+
+
+
+	<!-- VIDEO -->
+	<h4 align="center">
+	<video id="Video" class="XMv" controls> <!-- https://en.wikipedia.org/wiki/List_of_common_resolutions -->
+
+		<source src="https://raw.githubusercontent.com/xMeerkat/official-assets/master/assets/verifyWithJS.mp4"
+				type="video/mp4">
+
+	</video>
+	</h4>
+
+
+	<p class="WhiteBoy">
+		@java:video_description
+	</p>
+
+
+
+	<br>
+
+
+	<p class="WhiteBoy">
+		<small>
+		Uploaded on&nbsp;
+		@java:video_date
+		</small>
+	</p>
+
+	<small class="WhiteBoy">
+		Video ID:&nbsp;
+		@java:video_id
+	</small>
+
+
+@java:footer
+
+</main>
+</body>
+</html>

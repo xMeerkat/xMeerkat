@@ -1,7 +1,7 @@
 package xms.website.global
 
 import org.jetbrains.annotations.NotNull
-import xms.v.Video
+import xms.videos.Video
 
 object A_lookingFor {
 
@@ -36,7 +36,7 @@ object A_lookingFor {
             "video_author" -> video.author
             "video_url" -> video.url.toString()
             "video_description" -> video.description
-            "video_date" -> video.date.toString()
+            "video_date" -> video.date
             "video_id" -> video.ID.toString()
 
             "video_alert" -> videoalertjs.getCompiled(video.url.toString())

@@ -1,7 +1,7 @@
 package xms.website.video
 
 import org.jetbrains.annotations.NotNull
-import xms.v.Video
+import xms.videos.Video
 import xms.internal.Response
 import xms.website.Construct
 import xms.website.global.A_lookingFor

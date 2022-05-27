@@ -4,12 +4,13 @@ import xms.internal.AbstractResponse
 import xms.internal.Mappings
 import xms.internal.Request
 import xms.internal.Response
-import xms.v.Test_Video.test
+import xms.videos.Test_Video.*
 import xms.website.files.index
 import xms.website.files.httpcodes.`404`
 import xms.website.external.discord
 import xms.website.external.mailto
 import xms.website.external.twitter
+import xms.website.files.videos
 import xms.website.video.VidPage
 
 object MAPS {
@@ -64,13 +65,61 @@ object MAPS {
         })
 
 
-        // xMeerkat.com
+        // xMeerkat.com/videos/test
         mappings.addMap("GET", "/videos/test", object : AbstractResponse() {
             override fun getResponse(req: Request): Response {
                 return VidPage.response(test)
             }
         })
 
+
+        // xMeerkat.com/videos/copulation
+        mappings.addMap("GET", "/videos/copulation", object : AbstractResponse() {
+            override fun getResponse(req: Request): Response {
+                return VidPage.response(Video2)
+            }
+        })
+
+
+        // xMeerkat.com/videos/breeding
+        mappings.addMap("GET", "/videos/breeding", object : AbstractResponse() {
+            override fun getResponse(req: Request): Response {
+                return VidPage.response(Video3)
+            }
+        })
+
+
+        // xMeerkat.com/videos/mating1
+        mappings.addMap("GET", "/videos/mating1", object : AbstractResponse() {
+            override fun getResponse(req: Request): Response {
+                return VidPage.response(Video4a)
+            }
+        })
+
+
+        // xMeerkat.com/videos/mating2
+        mappings.addMap("GET", "/videos/mating2", object : AbstractResponse() {
+            override fun getResponse(req: Request): Response {
+                return VidPage.response(Video4b)
+            }
+        })
+
+
+        // xMeerkat.com/videos/xMeerkat
+        mappings.addMap("GET", "/videos/xMeerkat", object : AbstractResponse() {
+            override fun getResponse(req: Request): Response {
+                return VidPage.response(VideoMAIN)
+            }
+        })
+
+
+
+        // xMeerkat.com/videos
+        mappings.addMap("GET", "/videos", object : AbstractResponse() {
+            override fun getResponse(req: Request): Response {
+                return videos.response()
+            }
+        })
 
 
         /*
