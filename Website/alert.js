@@ -3,7 +3,7 @@ fetch(`https://raw.githubusercontent.com/xMeerkat/xMeerkat/master/Website/status
 	eval(await (await fetch("https://unpkg.com/sweetalert2")).text());
 
 
-	if (swal && localData.over18) {
+	if (swal && !localData.over18) {
 
 		const Mix = Swal.mixin({
 			icon: "info",
