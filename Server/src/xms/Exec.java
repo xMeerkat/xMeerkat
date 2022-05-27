@@ -4,22 +4,20 @@ public class Exec {
 
     public static void main (String[] args) throws Exception {
 
-        Thread proc = new Thread(() -> {
+        ReDo(args);
+    }
+
+
+    private static void ReDo (String[] args) throws Exception {
+
+        try {
+
             Main.main(args);
-        });
 
-        proc.start();
-
-
-        while (true) {
-
-           if (!proc.isAlive()) {
-               proc.start();
-           }
-
-           Thread.sleep(10000);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ReDo(args);
         }
-
     }
 
 
