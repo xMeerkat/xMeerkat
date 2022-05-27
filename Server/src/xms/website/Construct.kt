@@ -67,8 +67,29 @@ object Construct {
 
             if (toR.startsWith("<!--") && toR.endsWith("-->")) {
                 continue
+            } else {
+                output.append(toR)
             }
-            output.append(toR)
+        }
+
+        return output.toString()
+    }
+
+
+    @JvmStatic fun MinifyCSS (@NotNull css : String) : String {
+
+        val output : StringBuilder = StringBuilder()
+        val ary : List<String> = css.split("\n")
+
+        for (line in ary) {
+
+            val toR = line.replace("\n", "").replace("\t", "")
+
+            if (toR.startsWith("/*") && toR.endsWith("*/")) {
+                continue
+            } else {
+                output.append(toR)
+            }
         }
 
         return output.toString()

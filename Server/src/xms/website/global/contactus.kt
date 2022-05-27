@@ -8,7 +8,7 @@ object contactus {
 
     @JvmStatic val htmlContents : String = FileReader("global/global_contactus.html").readText()
 
-    @JvmStatic fun getMinified () : String {
+    @JvmStatic fun getCompiled () : String {
 
         return Construct.MinifyHTML(this.htmlContents)
     }

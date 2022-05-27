@@ -8,7 +8,8 @@ object meta {
 
     @JvmStatic val htmlContents : String = FileReader("global/global_meta.html").readText()
 
-    @JvmStatic fun getMinified () : String {
+    @JvmStatic fun getCompiled () : String {
+
         return Construct.MinifyHTML(this.htmlContents)
     }
 }
