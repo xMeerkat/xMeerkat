@@ -81,7 +81,7 @@ public final class Request {
         return httpVersion;
     }
 
-    public @NotNull String getUrl () {
+    public String getUrl () {
         assert url != null;
         return url;
     }
