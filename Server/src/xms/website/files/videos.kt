@@ -1,6 +1,7 @@
 package xms.website.files
 
 import xms.internal.Response
+import xms.videos.Video
 import xms.website.Construct
 import xms.website.global.A_lookingFor
 import java.io.FileReader
@@ -30,7 +31,7 @@ object videos {
                 continue
             }
             else if (toR.startsWith("@java")) {
-                output.append(A_lookingFor.LookingFor(toR))
+                output.append(A_lookingFor.lf(toR, Video.empty()))
             } else {
                 output.append(toR)
             }

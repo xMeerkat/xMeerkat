@@ -1,6 +1,7 @@
 package xms.website.global
 
 import org.jetbrains.annotations.NotNull
+import xms.videos.Video
 import java.io.FileReader
 
 /** alert.js */
@@ -26,11 +27,11 @@ object videoalertjs {
         return output.toString()
     }
 
-    @JvmStatic fun getCompiled (@NotNull url : String) : String {
+    @JvmStatic fun getCompiled (@NotNull video : Video) : String {
 
         val builder : StringBuilder = StringBuilder()
         builder.append("<script>")
-        builder.append("const REAL_VIDEO_URL = \"$url\";")
+        builder.append("const REAL_VIDEO_URL = \"${video.url}\";")
         builder.append(this.getMinified())
         builder.append("</script>")
 
