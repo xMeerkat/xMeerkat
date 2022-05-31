@@ -14,7 +14,7 @@ object profileWidget {
 
     @JvmStatic fun make (profile : Profile) : String {
 
-        var builder : StringBuilder = StringBuilder()
+        val builder : StringBuilder = StringBuilder()
 
         when (profile.accType) {
             AccType.GENERATED -> builder.append(GENERATED(profile))
@@ -98,6 +98,7 @@ object profileWidget {
 
         return PROFILE
     }
+
 
     @JvmStatic fun VERIFIED_ACCOUNT (profile : Profile) : String {
 

@@ -7,7 +7,6 @@ package xms.website.profile
 
 import org.jetbrains.annotations.NotNull
 import xms.profiles.Profile
-import xms.videos.Video
 import java.io.FileReader
 
 /** alert.js */

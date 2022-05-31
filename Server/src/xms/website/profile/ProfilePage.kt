@@ -8,8 +8,6 @@ package xms.website.profile
 import org.jetbrains.annotations.NotNull
 import xms.internal.Response
 import xms.profiles.Profile
-import xms.videos.Video
-import xms.videos.VideoList
 import xms.website.Construct
 import xms.website.global.A_lookingFor
 import java.io.FileReader

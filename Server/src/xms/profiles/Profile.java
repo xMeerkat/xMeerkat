@@ -10,9 +10,7 @@ import xms.MAPS;
 import xms.internal.AbstractResponse;
 import xms.internal.Request;
 import xms.internal.Response;
-import xms.videos.Video;
 import xms.website.profile.ProfilePage;
-import xms.website.video.VidPage;
 
 import java.net.URI;
 import java.util.UUID;

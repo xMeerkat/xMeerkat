@@ -17,7 +17,6 @@ import xms.website.external.twitter
 import xms.website.files.httpcodes.*
 import xms.website.files.index
 import xms.website.files.videos
-import xms.website.profile.ProfilePage
 
 object MAPS {
 
@@ -95,22 +94,6 @@ object MAPS {
 
 
         Test_Video.addVideos()
-
-
-        /*
-        mappings.addMap("GET", "/", "./html/index.html", "200 OK", "text/html")
-        mappings.addMap("GET", "/SAVE", "./html/save.html", "200 OK", "text/html")
-        mappings.addMap("POST", "/SAVE", "./html/save.html", "200 OK", "text/html")
-        mappings.addMap("GET", "/dome", object : AbstractResponse() {
-            override fun getResponse(req: Request): Response {
-                var res = "<html><body>"
-                res += "Msg received:" + req.getAttribute("msg") + "<br>"
-                res += "<a href='/'>Home</a>"
-                res += "</body></html>"
-                return Response(res, "200 OK", "text/html")
-            }
-        })
-        */
 
     }
 
