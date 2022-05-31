@@ -1,6 +1,6 @@
 package xms.videos;
 
-import java.util.UUID;
+import xms.profiles.ProfileMapN;
 
 public class Test_Video {
 
@@ -11,8 +11,8 @@ public class Test_Video {
 
         // Test
         new Video("Sex Ed be like",
-                "xMeerkat",
-                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/ph_kids.mp4",
+                ProfileMapN.profiles.get("xMeerkat"),
+                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/f4c0525a/video.mp4",
                 """
                                         
                             A generation ago, accessing pornography required effort. Unless an older sibling had a stash or a parent subscribed to an X-rated cable channel, teens had to actually leave the house and often craft elaborate plans to be able to view it.
@@ -22,7 +22,8 @@ public class Test_Video {
                             And if you’ve already discovered PornHub? Wait, why were you on the hub?
                             """,
                 "May 26, 2022",
-                "f4c0525a"
+                "f4c0525a",
+                false
         ).Push();
 
 
@@ -45,11 +46,12 @@ public class Test_Video {
 
         // Meerkat copulation in Safari
         new Video("Meerkat copulation in Safari",
-                "Alex Smolar",
-                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/Video-1.mp4",
+                ProfileMapN.profiles.get("AlexSmolar"),
+                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/ce94df8b/video.mp4",
                 desc2,
                 "Dec 2, 2009",
-                "ce94df8b"
+                "ce94df8b",
+                false
         ).Push();
 
 
@@ -70,11 +72,12 @@ public class Test_Video {
 
         // Meerkats breeding
         new Video("meerkats BREEDING",
-                "Kev Lar",
-                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/Video-2.mp4",
+                ProfileMapN.profiles.get("KevLar"),
+                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/c70f4fb6/video.mp4",
                 desc3,
                 "Jul 16, 2015",
-                "c70f4fb6"
+                "c70f4fb6",
+                false
         ).Push();
 
 
@@ -97,20 +100,22 @@ public class Test_Video {
         // https://youtu.be/1d1Yjt9_jtY
 
         new Video("MATING MEERKATS",
-                "Rosetta Findlay",
-                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/Video-3a.mp4",
+                ProfileMapN.profiles.get("RosettaFindlay"),
+                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/c0c1b47d/video.mp4",
                 desc4,
                 "Oct 26, 2016",
-                "c0c1b47d"
+                "c0c1b47d",
+                false
         ).Push();
 
 
         new Video("These meerkats are WILD",
-                "Rosetta Findlay",
-                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/Video-3b.mp4",
+                ProfileMapN.profiles.get("RosettaFindlay"),
+                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/235fde8b/video.mp4",
                 desc4,
                 "Oct 26, 2016",
-                "235fde8b"
+                "235fde8b",
+                false
         ).Push();
 
 
@@ -128,11 +133,12 @@ public class Test_Video {
         """;
 
         new Video("he FUCKED a MEERKAT?!",
-                "xMeerkat",
-                "https://raw.githubusercontent.com/x-Meerkat/main-image-xmeerkat/Image/img/MAIN/OMG.mp4",
+                ProfileMapN.profiles.get("xMeerkat"),
+                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/1b18dc29/video.mp4",
                 desc6,
                 "May 27, 2022",
-                "1b18dc29"
+                "1b18dc29",
+                false
         ).Push();
 
     }

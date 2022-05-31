@@ -2,6 +2,7 @@
 
 /* Settings apply to everything inside <html> */
 html {
+    background: #252322;
 	font-family: sans-serif;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
@@ -71,6 +72,15 @@ details {
 .WhiteBoy {
     color: #FFFFFF;
 }
+
+.BlueBoy {
+    color: #0099FF;
+}
+
+.VerifiedAcc {
+    color: #159957;
+}
+
 
 
 /* Settings apply to everything inside <audio>, <canvas>, continue... */
@@ -174,6 +184,27 @@ sub {
 /* Settings apply to everything inside <img> (Image) */
 img {
 	border: 0;
+}
+
+.ProfilePFP {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    vertical-align:middle;
+}
+
+.ProfilePFPp {
+    vertical-align: middle;
+    display: inline;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.ProfilePFPv {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    vertical-align:middle;
 }
 
 /* Settings apply to everything inside <svg> */

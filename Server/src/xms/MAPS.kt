@@ -4,6 +4,7 @@ import xms.internal.AbstractResponse
 import xms.internal.Mappings
 import xms.internal.Request
 import xms.internal.Response
+import xms.profiles.Test_Profile
 import xms.videos.Test_Video
 import xms.website.external.discord
 import xms.website.external.mailto
@@ -11,6 +12,7 @@ import xms.website.external.twitter
 import xms.website.files.httpcodes.*
 import xms.website.files.index
 import xms.website.files.videos
+import xms.website.profile.ProfilePage
 
 object MAPS {
 
@@ -32,7 +34,7 @@ object MAPS {
         })
 
 
-        // xMeerkat.com/404
+        // xMeerkat.com/403
         mappings.addMap("GET", "/403", object : AbstractResponse () {
             override fun getResponse(request: Request): Response {
                 return Response_403
@@ -73,6 +75,9 @@ object MAPS {
         })
 
 
+        // xMeerkat.com/user/example
+        Test_Profile.addProfiles()
+
 
 
         // xMeerkat.com/videos
@@ -81,6 +86,7 @@ object MAPS {
                 return videos.response()
             }
         })
+
 
 
         Test_Video.addVideos()

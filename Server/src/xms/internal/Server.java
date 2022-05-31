@@ -1,6 +1,7 @@
 package xms.internal;
 
 import org.jetbrains.annotations.NotNull;
+import xms.MAPS;
 import xms.analytics.Reqs;
 
 import java.io.IOException;
@@ -8,7 +9,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import xms.MAPS;
 
 public final @NotNull class Server {
 

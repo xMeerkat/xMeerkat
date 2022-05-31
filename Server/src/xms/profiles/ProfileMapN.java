@@ -1,0 +1,12 @@
+package xms.profiles;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.HashMap;
+
+/** Profile map by usernames */
+public final @NotNull class ProfileMapN {
+
+    public static final @NotNull HashMap<String, Profile> profiles = new HashMap<>();
+
+}

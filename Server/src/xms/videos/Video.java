@@ -5,6 +5,7 @@ import xms.MAPS;
 import xms.internal.AbstractResponse;
 import xms.internal.Request;
 import xms.internal.Response;
+import xms.profiles.Profile;
 import xms.website.video.VidPage;
 
 import java.net.URI;
@@ -21,7 +22,7 @@ public final class Video {
     /**
      * Creator of the video
      */
-    public final @NotNull String author;
+    public final @NotNull Profile author;
 
     /**
      * URI to the video binary
@@ -44,7 +45,7 @@ public final class Video {
     public final @NotNull String ID;
 
 
-    public Video (@NotNull String title, @NotNull String author, @NotNull String url, @NotNull String description, @NotNull String date, @NotNull String ID) {
+    public Video (@NotNull String title, @NotNull Profile author, @NotNull String url, @NotNull String description, @NotNull String date, @NotNull String ID, @NotNull Boolean ghost) {
 
         // Title Length must not be more than 100 characters
         if (title.length() > 100) {
@@ -53,57 +54,8 @@ public final class Video {
             this.title = title;
         }
 
-        // Author Length must not be more than 30 characters
-        if (author.length() > 30) {
-            this.author = author.substring(0, 30);
-        } else {
-            this.author = author;
-        }
-
-
-        // Move String URL to a URI
-        this.url = URI.create(url);
-
-        // Description Length must not be more than 1000 characters
-        if (description.length() > 1000) {
-            this.description = description.substring(0, 1000);
-        } else {
-            this.description = description;
-        }
-
-
-        // Move String to this.Date
-        this.date = date;
-
-
-        // Video ID must be a UUID
-        if (ID.length() == 8) {
-            this.ID = ID;
-        } else {
-            this.ID = UUID.randomUUID().toString().substring(0, 8);
-        }
-
-
-        VideoMap.videos.put(this.ID, this);
-
-        VideoList.videos.add(this);
-    }
-
-    public Video (@NotNull String title, @NotNull String author, @NotNull String url, @NotNull String description, @NotNull String date, @NotNull String ID, @NotNull Boolean ghost) {
-
-        // Title Length must not be more than 100 characters
-        if (title.length() > 100) {
-            this.title = title.substring(0, 100);
-        } else {
-            this.title = title;
-        }
-
-        // Author Length must not be more than 30 characters
-        if (author.length() > 30) {
-            this.author = author.substring(0, 30);
-        } else {
-            this.author = author;
-        }
+        // Author
+        this.author = author;
 
 
         // Move String URL to a URI
@@ -149,6 +101,6 @@ public final class Video {
 
 
     public static Video empty () {
-        return new Video("Placeholder", "xMeerkat", "", "This video is a placehoder.", "", UUID.randomUUID().toString(), true);
+        return new Video("Placeholder", Profile.empty(), "", "This video is a placehoder.", "", UUID.randomUUID().toString(), true);
     }
 }
