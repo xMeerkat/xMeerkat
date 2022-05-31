@@ -19,11 +19,12 @@ object profileTable {
         out.append("<tr>")
 
         var i : Int = 0
+        var l : Int = 0
 
 
         for (video in VideoList.videos) {
 
-            if (i >= 3) {
+            if (l >= 3) {
                 out.append("</tr>")
                 out.append("<tr>")
                 i = 0
@@ -31,6 +32,7 @@ object profileTable {
 
             if (profile == video.author) {
                 out.append(singleVid(video))
+                l++
             }
 
 

@@ -8,6 +8,7 @@ package xms.website.global
 import org.jetbrains.annotations.NotNull
 import xms.profiles.Profile
 import xms.videos.Video
+import xms.website.profile.profileTable
 import xms.website.profile.profileWidget
 import xms.website.profile.profilealertjs
 import xms.website.video.Table
@@ -25,6 +26,7 @@ object A_lookingFor {
 	                </video>
 	            </h4>
             """.trimIndent()
+
 
 
 
@@ -81,6 +83,8 @@ object A_lookingFor {
             "profile_bio" -> profile.bio
             "profile_id" -> profile.ID
             "profile" -> profileWidget.make(profile)
+
+            "profile_all_videos" -> profileTable.AllVideosFromProfile(profile)
 
 
             "profile_alert" -> profilealertjs.getCompiled(profile)

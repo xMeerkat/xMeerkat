@@ -66,11 +66,12 @@ object Construct {
         val output : StringBuilder = StringBuilder()
         val ary : List<String> = html.split("\n")
 
+
         for (line in ary) {
 
             val toR = line.replace("\n", "").replace("\t", "")
 
-            if (toR.startsWith("<!--") && toR.endsWith("-->")) {
+            if (toR.contains("<!--")) {
                 continue
             } else {
                 output.append(toR)
