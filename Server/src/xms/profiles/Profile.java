@@ -25,9 +25,9 @@ public class Profile {
     public final @NotNull String name;
 
     /**
-     * Is the person verified?
+     * Account type
      */
-    public final @NotNull Boolean verified;
+    public final @NotNull AccType accType;
 
     /**
      * Bio of the person
@@ -46,7 +46,7 @@ public class Profile {
 
 
 
-    public Profile (@NotNull String username, @NotNull String name, @NotNull Boolean verified, @NotNull String bio, @NotNull String ID, @NotNull String profilePicture) {
+    public Profile (@NotNull String username, @NotNull String name, @NotNull AccType accType, @NotNull String bio, @NotNull String ID, @NotNull String profilePicture) {
 
         // Username Length must not be more than 30 characters
         if (username.length() > 30) {
@@ -64,7 +64,7 @@ public class Profile {
         }
 
 
-        this.verified = verified;
+        this.accType = accType;
 
 
         // Bio Length must not be more than 1000 characters
@@ -94,7 +94,15 @@ public class Profile {
 
 
     public void Push () {
-        MAPS.getMappings().addMap("GET", "/user/" + this.name, new AbstractResponse() {
+        MAPS.getMappings().addMap("GET", "/user/" + this.username, new AbstractResponse() {
+
+            @Override
+            public Response getResponse(Request req) {
+                return ProfilePage.response(Profile.this);
+            }
+        });
+
+        MAPS.getMappings().addMap("GET", "/user/&" + this.ID, new AbstractResponse() {
 
             @Override
             public Response getResponse(Request req) {
@@ -104,7 +112,7 @@ public class Profile {
     }
 
 
-    public static Profile empty () {
-        return new Profile("Placeholder", "xMeerkat", false, "This video is a placehoder.", "b6a9a134-9cb0-4fc2-af1c-44e7b817cfe6", "");
+    public static @NotNull Profile empty () {
+        return new Profile("Placeholder", "xMeerkat", AccType.NORMAL, "This account is a placehoder.", "b6a9a134", "");
     }
 }

@@ -3,6 +3,7 @@ package xms.website.global
 import org.jetbrains.annotations.NotNull
 import xms.profiles.Profile
 import xms.videos.Video
+import xms.website.profile.profileWidget
 import xms.website.profile.profilealertjs
 import xms.website.video.Table
 import xms.website.video.videoalertjs
@@ -55,31 +56,6 @@ object A_lookingFor {
 
     fun lf (line: String, profile : Profile) : @NotNull String {
 
-        val PROFILE : String = """
-            <h4 align="left">
-                <p class="ProfilePFPp">
-		            <img id="ProfilePFP" class="ProfilePFP" src="https://raw.githubusercontent.com/xMeerkat/official-assets/master/assets/verifyWithJS.png"/> <!-- https://en.wikipedia.org/wiki/List_of_common_resolutions -->
-		            &nbsp;
-                    ${profile.name}
-                </p>
-	        </h4>
-            """.trimIndent()
-
-
-        val VERIFIED_PROFILE : String = """
-            <h4 align="left">
-                <p class="ProfilePFPp">
-		            <img id="ProfilePFP" class="ProfilePFP" src="https://raw.githubusercontent.com/xMeerkat/official-assets/master/assets/verifyWithJS.png"/> <!-- https://en.wikipedia.org/wiki/List_of_common_resolutions -->
-		            &nbsp;
-                    ${profile.name}
-                    <img class="ProfilePFPv" src="https://raw.githubusercontent.com/xMeerkat/official-assets/master/assets/Verified.png"/> <!-- https://en.wikipedia.org/wiki/List_of_common_resolutions -->
-                </p>
-	        </h4>
-
-            <p class="VerifiedAcc">
-                Verified Account
-            </p>
-            """.trimIndent()
 
 
         return when (line.replace("@java:", "").trim().lowercase()) {
@@ -92,13 +68,14 @@ object A_lookingFor {
             "meta" -> meta.getCompiled()
             "style" -> stylesheet.getCompiled()
 
-            // VIDEO-SPECIFIC ONES:
+            // PROFILE-SPECIFIC ONES:
             "profile_username" -> profile.username
+            "profile_atusername" -> "@" + profile.username
             "profile_name" -> profile.name
-            "profile_verified" -> profile.verified.toString()
+            "profile_type" -> profile.accType.toString().lowercase().capitalize()
             "profile_bio" -> profile.bio
             "profile_id" -> profile.ID
-            "profile" -> if (profile.verified) { VERIFIED_PROFILE } else { PROFILE }
+            "profile" -> profileWidget.make(profile)
 
 
             "profile_alert" -> profilealertjs.getCompiled(profile)

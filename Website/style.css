@@ -69,6 +69,7 @@ details {
 }
 
 
+
 .WhiteBoy {
     color: #FFFFFF;
 }
@@ -77,9 +78,28 @@ details {
     color: #0099FF;
 }
 
-.VerifiedAcc {
-    color: #159957;
+
+
+.VerifiedGen {
+    color: #99A2A2;
 }
+
+.VerifiedAcc {
+    color: #23F478;
+}
+
+.VerifiedMod {
+    color: #00A0FF;
+}
+
+.VerifiedPremium {
+    color: #FBB015;
+}
+
+.VerifiedDom {
+    color: #FB6915;
+}
+
 
 
 
@@ -206,6 +226,15 @@ img {
     height: 35px;
     vertical-align:middle;
 }
+
+.ProfilePFPd {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    vertical-align:middle;
+}
+
+
 
 /* Settings apply to everything inside <svg> */
 svg:not(:root) {
