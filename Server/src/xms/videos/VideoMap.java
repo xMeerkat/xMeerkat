@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2022, xMeerkat.com
+ * All rights reserved.
+ */
+
 package xms.videos;
 
 import org.jetbrains.annotations.NotNull;
