@@ -30,21 +30,29 @@ public final @NotNull class Server {
         this.mappings = mappings;
     }
 
-    public @NotNull Request accept () throws IOException {
-
-        Reqs.Companion.increm(1);
-
-        client = server.accept();
-        InputStream is = client.getInputStream();
-        int c;
+    public @NotNull Request accept () {
         StringBuilder raw = new StringBuilder();
-        do {
-            c = is.read();
-            raw.append((char) c);
-        } while (is.available() > 0);
 
-        final Request request = new Request(raw.toString());
-        return request;
+        try {
+            Reqs.Companion.increm(1);
+
+            client = server.accept();
+            InputStream is = client.getInputStream();
+            int c;
+
+            do {
+                c = is.read();
+                raw.append((char) c);
+            } while (is.available() > 0);
+
+            final Request request = new Request(raw.toString());
+            return request;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            final Request request = new Request(raw.toString());
+            return request;
+        }
     }
 
     public void shut () throws IOException {
