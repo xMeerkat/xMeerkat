@@ -9,7 +9,7 @@ import xms.internal.AbstractResponse
 import xms.internal.Mappings
 import xms.internal.Request
 import xms.internal.Response
-import xms.profiles.Test_Profile
+import xms.profiles.ProfileRegistry
 import xms.videos.Test_Video
 import xms.website.external.discord
 import xms.website.external.mailto
@@ -81,7 +81,7 @@ object MAPS {
 
 
         // xMeerkat.com/user/example
-        Test_Profile.addProfiles()
+        ProfileRegistry.addProfiles()
 
 
 
