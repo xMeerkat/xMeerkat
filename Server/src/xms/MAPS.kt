@@ -41,6 +41,7 @@ object MAPS {
         // xMeerkat.com/403
         mappings.addMap("GET", "/403", object : AbstractResponse () {
             override fun getResponse(request: Request): Response {
+
                 return Response_403
             }
         })
@@ -49,7 +50,7 @@ object MAPS {
         // xMeerkat.com/discord
         mappings.addMap("GET", "/discord", object : AbstractResponse() {
             override fun getResponse(req: Request): Response {
-                val res : String = discord.getMinified()
+                val res : String = discord.getCompiled()
                 return Response(res, "200 OK", "text/html")
             }
         })
@@ -58,7 +59,7 @@ object MAPS {
         // xMeerkat.com/twitter
         mappings.addMap("GET", "/twitter", object : AbstractResponse() {
             override fun getResponse(req: Request): Response {
-                val res : String = twitter.getMinified()
+                val res : String = twitter.getCompiled()
                 return Response(res, "200 OK", "text/html")
             }
         })
@@ -66,7 +67,7 @@ object MAPS {
         // xMeerkat.com/mailto
         mappings.addMap("GET", "/mailto", object : AbstractResponse() {
             override fun getResponse(req: Request): Response {
-                val res : String = mailto.getMinified()
+                val res : String = mailto.getCompiled()
                 return Response(res, "200 OK", "text/html")
             }
         })

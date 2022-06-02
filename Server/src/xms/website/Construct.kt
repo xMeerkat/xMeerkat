@@ -101,4 +101,25 @@ object Construct {
 
         return output.toString()
     }
+
+
+    /** Minify JavaScript to one line */
+    @JvmStatic fun MinifyJS (@NotNull js : String) : String {
+
+        val output : StringBuilder = StringBuilder()
+        val ary : List<String> = js.split("\n")
+
+        for (line in ary) {
+
+            val toR = line.replace("\n", "").replace("\t", "")
+
+            if ((toR.startsWith("/*") && toR.endsWith("*/")) || (toR.startsWith("//"))) {
+                continue
+            } else {
+                output.append(toR)
+            }
+        }
+
+        return output.toString()
+    }
 }

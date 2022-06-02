@@ -5,31 +5,54 @@
 
 package xms
 
-import xms.runners.Runner443
-import xms.runners.Runner80
+import xms.runners.Runner443 as Port443
+import xms.runners.Runner80 as Port80
 
 
 object Main {
 
-    @JvmStatic fun main (args: Array<String>) : Unit {
+    @JvmStatic private val runner : Thread = Thread {
 
         println("\nRunning xMeerkat on http://localhost:80 and http://localhost:443\n")
 
-        val HTTP : Thread = Thread {
-            Runner80.main()
+        val HTTP: Thread = Thread {
+            Port80.main()
         }
 
-        val HTTPS : Thread = Thread {
-            Runner443.main()
+        val HTTPS: Thread = Thread {
+            Port443.main()
         }
+
 
 
         MAPS.addMaps()
 
         HTTP.start()
         HTTPS.start()
-
-
     }
+
+
+    @JvmStatic fun main (args: Array<String>) : Unit {
+
+        val handler : Thread.UncaughtExceptionHandler = Thread.UncaughtExceptionHandler { runner, e ->
+            println("Uncaught exception: $e")
+            runner.interrupt()
+            revive()
+        }
+
+
+
+        runner.uncaughtExceptionHandler = handler
+        Thread.setDefaultUncaughtExceptionHandler(handler)
+
+        runner.start()
+    }
+
+    @JvmStatic fun revive () : Unit {
+
+        runner.start()
+    }
+
+
 
 }
