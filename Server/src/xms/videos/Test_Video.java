@@ -14,20 +14,48 @@ public class Test_Video {
 
 
 
+
+        new Video("he FUCKED a MEERKAT?!",
+                ProfileMapN.profiles.get("delgado"),
+                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/1b18dc29/video.mp4",
+                """
+                This is the one image that started xMeerkat.
+                (photo only)
+                """,
+                "May 27, 2022",
+                "1b18dc29",
+                false
+        ).Push();
+
+
+
+
         // Test
         new Video("Sex Ed be like",
                 ProfileMapN.profiles.get("xMeerkat"),
                 "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/f4c0525a/video.mp4",
                 """
-                                        
                             A generation ago, accessing pornography required effort. Unless an older sibling had a stash or a parent subscribed to an X-rated cable channel, teens had to actually leave the house and often craft elaborate plans to be able to view it.
-                            
-                            Now a veritable buffet of porn is as close as the nearest Internet-connected device—and its ubiquity has affected teen attitudes toward sexuality, body image, violence, and treatment of women.
-                                        
+                            Now a veritable buffet of porn is as close as the nearest Internet-connected device—and its ubiquity has affected teen attitudes toward sex.
                             And if you’ve already discovered PornHub? Wait, why were you on the hub?
                             """,
                 "May 26, 2022",
                 "f4c0525a",
+                false
+        ).Push();
+
+
+
+        // SloMo
+        new Video("in SLOW MOTION!?!",
+                ProfileMapN.profiles.get("cliplab"),
+                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/712f20e8/video.mp4",
+                """
+                STOCK FOOTAGE of SLOW MOTION: Meerkats have a sex
+                https://youtu.be/dDIuQyE64Wg
+                """,
+                "Oct 16, 2020",
+                "712f20e8",
                 false
         ).Push();
 
@@ -51,7 +79,7 @@ public class Test_Video {
 
         // Meerkat copulation in Safari
         new Video("Meerkat copulation in Safari",
-                ProfileMapN.profiles.get("AlexSmolar"),
+                ProfileMapN.profiles.get("smolar"),
                 "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/ce94df8b/video.mp4",
                 desc2,
                 "Dec 2, 2009",
@@ -77,7 +105,7 @@ public class Test_Video {
 
         // Meerkats breeding
         new Video("meerkats BREEDING",
-                ProfileMapN.profiles.get("KevLar"),
+                ProfileMapN.profiles.get("kevlar"),
                 "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/c70f4fb6/video.mp4",
                 desc3,
                 "Jul 16, 2015",
@@ -105,7 +133,7 @@ public class Test_Video {
         // https://youtu.be/1d1Yjt9_jtY
 
         new Video("MATING MEERKATS",
-                ProfileMapN.profiles.get("RosettaFindlay"),
+                ProfileMapN.profiles.get("findlay"),
                 "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/c0c1b47d/video.mp4",
                 desc4,
                 "Oct 26, 2016",
@@ -115,34 +143,11 @@ public class Test_Video {
 
 
         new Video("These meerkats are WILD",
-                ProfileMapN.profiles.get("RosettaFindlay"),
+                ProfileMapN.profiles.get("findlay"),
                 "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/235fde8b/video.mp4",
                 desc4,
                 "Oct 26, 2016",
                 "235fde8b",
-                false
-        ).Push();
-
-
-
-
-
-
-
-        String desc6 = """
-        
-        
-        This is the one image that started xMeerkat.
-        (photo only)
-        
-        """;
-
-        new Video("he FUCKED a MEERKAT?!",
-                ProfileMapN.profiles.get("xMeerkat"),
-                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/1b18dc29/video.mp4",
-                desc6,
-                "May 27, 2022",
-                "1b18dc29",
                 false
         ).Push();
 
