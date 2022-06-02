@@ -14,4 +14,8 @@ public final @NotNull class ProfileMapN {
 
     public static final @NotNull HashMap<String, Profile> profiles = new HashMap<>();
 
+    public static Profile get (String username) {
+        return profiles.getOrDefault(username, Profile.empty());
+    }
+
 }

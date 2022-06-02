@@ -10,7 +10,7 @@ import xms.internal.Mappings
 import xms.internal.Request
 import xms.internal.Response
 import xms.profiles.ProfileRegistry
-import xms.videos.Test_Video
+import xms.videos.VideoRegistry
 import xms.website.external.discord
 import xms.website.external.mailto
 import xms.website.external.twitter
@@ -94,7 +94,7 @@ object MAPS {
 
 
 
-        Test_Video.addVideos()
+        VideoRegistry.addVideos()
 
     }
 

@@ -49,7 +49,7 @@ public class Profile {
 
 
 
-    public Profile (@NotNull String username, @NotNull String name, @NotNull AccType accType, @NotNull String bio, @NotNull String ID, @NotNull String profilePicture) {
+    public Profile (@NotNull String username, @NotNull String name, @NotNull AccType accType, @NotNull String bio, @NotNull String ID, @NotNull String profilePicture, @NotNull Boolean ghost) {
 
         // Username Length must not be more than 30 characters
         if (username.length() > 30) {
@@ -89,10 +89,11 @@ public class Profile {
         this.profilePicture = URI.create(profilePicture);
 
 
-
-        ProfileMap.profiles.put(this.ID, this);
-        ProfileMapN.profiles.put(this.username, this);
-        ProfileList.profiles.add(this);
+        if (!ghost) {
+            ProfileMap.profiles.put(this.ID, this);
+            ProfileMapN.profiles.put(this.username, this);
+            ProfileList.profiles.add(this);
+        }
     }
 
 
@@ -116,6 +117,6 @@ public class Profile {
 
 
     public static @NotNull Profile empty () {
-        return new Profile("Placeholder", "xMeerkat", AccType.NORMAL, "This account is a placehoder.", "b6a9a134", "");
+        return new Profile("Placeholder", "xMeerkat", AccType.NORMAL, "This account is a placehoder.", "b6a9a134", "", true);
     }
 }
