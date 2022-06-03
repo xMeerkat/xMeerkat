@@ -21,7 +21,7 @@ object Runner80 {
         var server80 : Server
 
         while (true) {
-            server80 = Server(PORT, MAPS.mappings)
+            server80 = Server (PORT, MAPS.mappings)
             val req : Request = server80.accept()
             server80.sendResponse(req)
             server80.shut()

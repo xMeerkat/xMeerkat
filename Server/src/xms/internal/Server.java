@@ -34,7 +34,7 @@ public final @NotNull class Server {
         StringBuilder raw = new StringBuilder();
 
         try {
-            Reqs.Companion.increm(1);
+            Reqs.increm(1);
 
             client = server.accept();
             InputStream is = client.getInputStream();

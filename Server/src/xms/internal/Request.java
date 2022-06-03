@@ -31,15 +31,17 @@ public final class Request {
         String[] temp = req.split("\r\n");
         String firstLine = temp[0];
         String[] firstLineSplit = firstLine.split(" ");
-        if(firstLineSplit.length==3){
+
+        if (firstLineSplit.length==3) {
             method = firstLineSplit[0];
             httpVersion = firstLineSplit[2];
-            if (method.equals("POST")){
+
+            if (method.equals("POST")) {
                 url = firstLineSplit[1];
                 setAttributes(temp[temp.length-1]);
             } else if (method.equals("GET")) {
                 String[] arr=firstLineSplit[1].split("[?]");
-                if(arr.length==2){
+                if (arr.length==2) {
                     url=arr[0];
                     setAttributes(arr[1]);
                 } else {

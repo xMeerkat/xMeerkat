@@ -7,6 +7,7 @@ package xms.videos;
 
 import org.jetbrains.annotations.NotNull;
 import xms.profiles.Profile;
+import xms.profiles.ProfileMapN;
 
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -14,7 +15,7 @@ import java.util.Scanner;
 
 public final class fast {
 
-    public static void push (@NotNull String id, @NotNull Profile Author) {
+    public static void push (@NotNull String id, @NotNull String Author) {
 
         String title;
         Profile author;
@@ -31,7 +32,7 @@ public final class fast {
 
 
         // Author
-        author = Author;
+        author = ProfileMapN.profiles.getOrDefault(Author, Profile.empty());
 
         // Video URL
         url = "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/" + id + "/video.mp4";

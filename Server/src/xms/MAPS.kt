@@ -5,10 +5,12 @@
 
 package xms
 
+
 import xms.internal.AbstractResponse
 import xms.internal.Mappings
 import xms.internal.Request
 import xms.internal.Response
+import xms.premium.pTokenStorage.isValidToken
 import xms.profiles.ProfileRegistry
 import xms.videos.VideoRegistry
 import xms.website.external.discord
@@ -27,12 +29,59 @@ object MAPS {
     @JvmStatic val Response_403 : Response = Response(`403`.Compile(), "403 Forbidden", "text/html")
 
 
-    @JvmStatic fun addMaps () {
+    @JvmStatic fun addMaps () : Unit {
+
+
+
+        addHTTPcodes()
+        addSocials()
+
+
+
+        // xMeerkat.com
+        mappings.addMap("GET", "/", object : AbstractResponse() {
+            override fun getResponse(req: Request): Response {
+                return index.response()
+            }
+        })
+
+
+        // xMeerkat.com/user/example
+        ProfileRegistry.addProfiles()
+
+
+
+        // xMeerkat.com/videos
+        mappings.addMap("GET", "/videos", object : AbstractResponse() {
+            override fun getResponse(req: Request): Response {
+                return videos.response()
+            }
+        })
+
+
+
+        VideoRegistry.addVideos()
+
+    }
+
+
+    @JvmStatic private fun addHTTPcodes () : Unit {
+
+
+        // xMeerkat.com/test
+        mappings.addMap("GET", "/test", object : AbstractResponse () {
+            override fun getResponse(request: Request): Response {
+
+
+                return Response("test page for xMeerkat", "200 OK", "text/html")
+            }
+        })
 
 
         // xMeerkat.com/404
         mappings.addMap("GET", "/404", object : AbstractResponse () {
-            override fun getResponse(request: Request): Response {
+            override fun getResponse (request: Request): Response {
+
                 return Response_404
             }
         })
@@ -45,6 +94,10 @@ object MAPS {
                 return Response_403
             }
         })
+
+    }
+
+    @JvmStatic private fun addSocials () : Unit {
 
 
         // xMeerkat.com/discord
@@ -71,30 +124,6 @@ object MAPS {
                 return Response(res, "200 OK", "text/html")
             }
         })
-
-        // xMeerkat.com
-        mappings.addMap("GET", "/", object : AbstractResponse() {
-            override fun getResponse(req: Request): Response {
-                return index.response()
-            }
-        })
-
-
-        // xMeerkat.com/user/example
-        ProfileRegistry.addProfiles()
-
-
-
-        // xMeerkat.com/videos
-        mappings.addMap("GET", "/videos", object : AbstractResponse() {
-            override fun getResponse(req: Request): Response {
-                return videos.response()
-            }
-        })
-
-
-
-        VideoRegistry.addVideos()
 
     }
 

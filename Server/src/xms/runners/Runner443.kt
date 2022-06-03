@@ -21,7 +21,7 @@ object Runner443 {
         var server443 : Server
 
         while (true) {
-            server443 = Server(PORT, MAPS.mappings)
+            server443 = Server (PORT, MAPS.mappings)
             val req: Request = server443.accept()
             server443.sendResponse(req)
             server443.shut()

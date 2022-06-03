@@ -5,6 +5,7 @@
 
 package xms
 
+import xms.premium.pTokenStorage.xin as InitPremium
 import xms.runners.Runner443 as Port443
 import xms.runners.Runner80 as Port80
 
@@ -34,23 +35,27 @@ object Main {
 
     @JvmStatic fun main (args: Array<String>) : Unit {
 
-        val handler : Thread.UncaughtExceptionHandler = Thread.UncaughtExceptionHandler { runner, e ->
+        val handler : Thread.UncaughtExceptionHandler = Thread.UncaughtExceptionHandler { _, e ->
+            e.printStackTrace()
             println("Uncaught exception: $e")
             runner.interrupt()
             revive()
         }
 
 
-
-        runner.uncaughtExceptionHandler = handler
         Thread.setDefaultUncaughtExceptionHandler(handler)
+        runner.uncaughtExceptionHandler = handler
+
+
+        InitPremium()
+
 
         runner.start()
     }
 
     @JvmStatic fun revive () : Unit {
 
-        runner.start()
+        runner.run()
     }
 
 

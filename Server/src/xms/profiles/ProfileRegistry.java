@@ -98,7 +98,7 @@ public final class ProfileRegistry {
     private static void verifiedMods () {
 
         new Profile("gemsvido",
-                "gemsvidø",
+                "gemsvid&oslash;",
                 AccType.VERIFIED_MODERATOR,
                 "Owner of xMeerkat",
                 "cb17a326",
