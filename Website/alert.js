@@ -17,7 +17,7 @@ fetch(`https://raw.githubusercontent.com/xMeerkat/xMeerkat/master/Website/status
 		if (!(await Mix.fire("xMeerkat", "This website is not for anyone under the age of 18.")).value) {
 
             document.write("");
-            document.write("<html class=\"blackbg\"><h1 class=\"white\">This website is not for anyone under the age of 18.</h1><style> .blackbg { background-color: black; } .white { color: white; }</style></html>");
+            return document.write("<html class=\"blackbg\"><h1 class=\"white\">This website is not for anyone under the age of 18.</h1><style> .blackbg { background-color: black; } .white { color: white; }</style></html>");
 
 		} else {
 
