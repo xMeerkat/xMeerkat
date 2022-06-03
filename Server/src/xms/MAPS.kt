@@ -71,7 +71,7 @@ object MAPS {
         // temp for dns
         mappings.addMap("GET", "/.well-known/pki-validation/43A7A7777F069378C40B842CA602AA5C.txt", object : AbstractResponse() {
             override fun getResponse(req: Request): Response {
-                return Response("377806D045DF2C5ECA83FFDC7B0480A96306DA99B3A63C8FC64C6917250F69AF comodoca.com", "200 OK", "text/txt")
+                return Response("377806D045DF2C5ECA83FFDC7B0480A96306DA99B3A63C8FC64C6917250F69AF comodoca.com", "200 OK", "text/plain")
             }
         })
 
