@@ -29,6 +29,9 @@ public final class Request {
         parse();
 
         isPremiumReq = pTokenStorage.isValidToken(attributes.getOrDefault("token", ""));
+        if (isPremiumReq) {
+            System.out.println("Premium request");
+        }
     }
 
     private void parse () {
