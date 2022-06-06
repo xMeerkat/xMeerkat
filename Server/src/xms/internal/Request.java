@@ -8,6 +8,7 @@
 package xms.internal;
 
 import org.jetbrains.annotations.NotNull;
+import xms.premium.pTokenStorage;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -18,13 +19,16 @@ public final class Request {
     private String method = null;
     private String url = null;
     private String httpVersion = null;
-    private final HashMap<String,String> attributes;
+    private final HashMap<String, String> attributes;
+    public final Boolean isPremiumReq;
 
 
     public Request (String req) {
         this.req = req;
-        attributes = new HashMap<String, String>();
+        attributes = new HashMap<>();
         parse();
+
+        isPremiumReq = pTokenStorage.isValidToken(attributes.getOrDefault("token", ""));
     }
 
     private void parse () {
@@ -32,7 +36,7 @@ public final class Request {
         String firstLine = temp[0];
         String[] firstLineSplit = firstLine.split(" ");
 
-        if (firstLineSplit.length==3) {
+        if (firstLineSplit.length == 3) {
             method = firstLineSplit[0];
             httpVersion = firstLineSplit[2];
 
@@ -41,8 +45,8 @@ public final class Request {
                 setAttributes(temp[temp.length-1]);
             } else if (method.equals("GET")) {
                 String[] arr=firstLineSplit[1].split("[?]");
-                if (arr.length==2) {
-                    url=arr[0];
+                if (arr.length == 2) {
+                    url = arr[0];
                     setAttributes(arr[1]);
                 } else {
                     url = firstLineSplit[1];
@@ -59,9 +63,9 @@ public final class Request {
 
     private void setAttributes (@NotNull String rawAttributes) {
         String[] attribs=rawAttributes.split("&");
-        for(int i=0;i<attribs.length;i++){
+        for(int i = 0; i < attribs.length; i++){
             String[] attr=attribs[i].split("=");
-            if(attr.length==2){
+            if (attr.length==2) {
                 setAttribute(attr[0],attr[1].replace("+"," "));
             }
         }

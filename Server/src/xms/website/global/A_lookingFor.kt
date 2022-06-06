@@ -8,6 +8,7 @@ package xms.website.global
 import org.jetbrains.annotations.NotNull
 import xms.profiles.Profile
 import xms.videos.Video
+import xms.website.cookies.cookiesjs
 import xms.website.profile.profileTable
 import xms.website.profile.profileWidget
 import xms.website.profile.profilealertjs
@@ -39,6 +40,7 @@ object A_lookingFor {
             "alert" -> alertjs.getCompiled()
             "meta" -> meta.getCompiled()
             "style" -> stylesheet.getCompiled()
+            "cjs" -> cookiesjs.getCompiled()
 
             // VIDEO-SPECIFIC ONES:
             "video_title" -> video.title
@@ -74,6 +76,7 @@ object A_lookingFor {
             "alert" -> alertjs.getCompiled()
             "meta" -> meta.getCompiled()
             "style" -> stylesheet.getCompiled()
+            "cjs" -> cookiesjs.getCompiled()
 
             // PROFILE-SPECIFIC ONES:
             "profile_username" -> profile.username

@@ -48,6 +48,10 @@ public class pTokenStorage {
 
     public static @NotNull Boolean isValidToken (@NotNull String token) {
 
+        if (token.equals("")) {
+            return false;
+        }
+
         for (String t : tokenList) {
             if (t.replaceAll("\n", "").trim().equals(token)) {
                 return true;

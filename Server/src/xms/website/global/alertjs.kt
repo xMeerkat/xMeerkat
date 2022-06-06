@@ -6,6 +6,7 @@
 package xms.website.global
 
 import xms.website.Construct
+import xms.website.cookies.cookiesjs
 import java.io.FileReader
 
 /** alert.js */
@@ -18,6 +19,7 @@ object alertjs {
 
         val builder : StringBuilder = StringBuilder()
         builder.append("<script>")
+        builder.append(cookiesjs.getCompiled())
         builder.append(Construct.MinifyJS(this.jsContents))
         builder.append("</script>")
 
