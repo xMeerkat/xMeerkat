@@ -12,7 +12,7 @@ import xms.runners.Runner80 as Port80
 object Main {
 
 
-    @JvmStatic fun main (args: Array<String>) : Unit {s
+    @JvmStatic fun main (args: Array<String>) : Unit {
 
         while (true) {
 
