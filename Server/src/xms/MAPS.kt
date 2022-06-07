@@ -41,6 +41,11 @@ object MAPS {
         // xMeerkat.com
         mappings.addMap("GET", "/", object : AbstractResponse() {
             override fun getResponse(req: Request): Response {
+
+                if (req.isPremiumReq) {
+                    println("[xMeerkat.com] Request is premium")
+                }
+
                 return index.response()
             }
         })

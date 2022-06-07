@@ -5,6 +5,7 @@
 
 package xms
 
+import xms.premium.pTokenStorage.xin as InitPremiumTokens
 import xms.runners.Runner443 as Port443
 import xms.runners.Runner80 as Port80
 
@@ -27,6 +28,8 @@ object Main {
                 val HTTPS: Thread = Thread {
                     Port443.main()
                 }
+
+                InitPremiumTokens()
 
 
 
