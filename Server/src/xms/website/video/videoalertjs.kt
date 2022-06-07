@@ -26,8 +26,7 @@ object videoalertjs {
         builder.append(cookiesjs.getCompiled())
         builder.append("const REAL_VIDEO_URL = \"${video.url}\";")
         builder.append(Construct.MinifyJS(jsContents))
-        // builder.append(Construct.MinifyJS(premiumAdJs))
-        builder.append(premiumAdJs)
+        builder.append(Construct.MinifyJS(premiumAdJs))
         builder.append("</script>")
 
         return builder.toString()

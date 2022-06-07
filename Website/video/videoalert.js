@@ -4,7 +4,7 @@ function log (message) {
 
 function doVideo () {
 
-	let introPlayed = false;
+	introPlayed = false;
 	
 	document.getElementById("Video").src = "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/4fa3816f/video.mp4";
 	
@@ -34,6 +34,8 @@ const doVid = async () => {
 
 };
 
+var introPlayed;
+
 
 
 log("alert.js loaded");
@@ -51,7 +53,7 @@ fetch(`https://raw.githubusercontent.com/xMeerkat/xMeerkat/master/Website/status
 
 
 		/* ALRAEDY DECLARED ADULT */
-		if (docCookies.getItem("xMeerkat-adult") == "true") {
+		if (docCookies.getItem("xMeerkat-adult") === "true") {
 
 			log("adult cookie is true");
 
@@ -100,7 +102,7 @@ fetch(`https://raw.githubusercontent.com/xMeerkat/xMeerkat/master/Website/status
 
 
 		/* PREVIOUSLY DECLARED BELOW 18 */
-		else if (docCookies.getItem("xMeerkat-adult") == "false") {
+		else if (docCookies.getItem("xMeerkat-adult") === "false") {
 
 
 			log("adult cookie is false");
@@ -150,7 +152,7 @@ fetch(`https://raw.githubusercontent.com/xMeerkat/xMeerkat/master/Website/status
 
 
 		/* NOT SET */
-		else if (docCookies.getItem("xMeerkat-adult") == null || docCookies.getItem("xMeerkat-adult") == "null") {
+		else if (docCookies.getItem("xMeerkat-adult") == null || docCookies.getItem("xMeerkat-adult") === "null") {
 
 			log("creating swal mixin");
 
