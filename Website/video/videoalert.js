@@ -2,7 +2,6 @@ function log (message) {
 	return console.log("[xMeerkat => from alert.js] " + message);
 }
 
-
 function doVideo () {
 
 	let introPlayed = false;
@@ -19,12 +18,21 @@ function doVideo () {
 		}
 	
 	}, true);
-	
-	
+
+
 	// await new Promise(r => setTimeout(r, 100));
-	document.getElementById("Video").play();
+	// document.getElementById("Video").play();
 
 }
+
+const doVid = async () => {
+
+    doVideo();
+    await new Promise(r => setTimeout(r, 100));
+	document.getElementById("Video").play();
+
+
+};
 
 
 
@@ -77,7 +85,7 @@ fetch(`https://raw.githubusercontent.com/xMeerkat/xMeerkat/master/Website/status
 				docCookies.setItem("xMeerkat-adult", "true");
 
 				log("setting the main image");
-				doVideo();
+				doVid();
 				return log("set the main image");
 
 			}
@@ -118,7 +126,7 @@ fetch(`https://raw.githubusercontent.com/xMeerkat/xMeerkat/master/Website/status
 				docCookies.setItem("xMeerkat-adult", "true");
 
 				log("setting the main image");
-				doVideo();
+				doVid();
 				return log("set the main image");
 
 
@@ -173,7 +181,7 @@ fetch(`https://raw.githubusercontent.com/xMeerkat/xMeerkat/master/Website/status
 				docCookies.setItem("xMeerkat-adult", "true");
 
 				log("setting the main image");
-				doVideo();
+				doVid();
 				return log("set the main image");
 
 			}
@@ -216,7 +224,7 @@ fetch(`https://raw.githubusercontent.com/xMeerkat/xMeerkat/master/Website/status
 				docCookies.setItem("xMeerkat-adult", "true");
 
 				log("setting the main image");
-                doVideo();
+                doVid();
 				return log("set the main image");
 
 			}
