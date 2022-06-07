@@ -36,7 +36,7 @@ object Main {
                 Port443.main()
 
             } catch (xx : Exception) {
-                xx.printStackTrace()
+                xx.printStackTrace(System.err)
             }
 
 

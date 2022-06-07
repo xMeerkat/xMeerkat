@@ -22,7 +22,7 @@ object videoalertjs {
         val builder : StringBuilder = StringBuilder()
         builder.append("<script>")
         builder.append(cookiesjs.getCompiled())
-        builder.append("const REAL_VIDEO_URL = \"${video.url}\";`")
+        builder.append("const REAL_VIDEO_URL = \"${video.url}\";")
         builder.append(Construct.MinifyJS(jsContents))
         builder.append("</script>")
 
