@@ -3,7 +3,7 @@
  * All rights reserved.
  */
 
-package xms.website.files
+package xms.website.premium.page
 
 import xms.MAPS
 import xms.internal.AbstractResponse
@@ -14,16 +14,12 @@ import xms.website.Construct
 import xms.website.global.A_lookingFor
 import java.io.FileReader
 
-/** The homepage of xMeerkat - / */
-object index {
+object premPg {
 
     @JvmStatic var Mapped : Boolean = false
 
+    @JvmStatic val htmlContents : String = FileReader("premiumPage/premiumPage.html").readText()
 
-    /** Non-compiled HTML contents */
-    @JvmStatic val htmlContents : String = FileReader("index.html").readText()
-
-    /** @return Minified version of htmlContents and puts the @java items. */
     @JvmStatic fun Compile () : String {
 
 
@@ -52,8 +48,8 @@ object index {
         return output.toString()
     }
 
-    /** @return Response to put on the mappings. */
     @JvmStatic fun response () : Response {
+
         return Construct.CompileResp(this.Compile(), "200 OK", "text/html", "no-cache")
     }
 
@@ -63,19 +59,13 @@ object index {
             return
         }
 
-        // xMeerkat.com
-        MAPS.mappings.addMap("GET", "/", object : AbstractResponse() {
+        // xMeerkat.com/premium
+        MAPS.mappings.addMap("GET", "/premium", object : AbstractResponse() {
             override fun getResponse(req: Request): Response {
-
-                if (req.isPremiumReq) {
-                    println("[xMeerkat.com] Request is premium")
-                }
-
-                return index.response()
+                return premPg.response()
             }
         })
 
         this.Mapped = true
     }
-
 }

@@ -19,6 +19,7 @@ import xms.website.external.twitter
 import xms.website.files.httpcodes.*
 import xms.website.files.index
 import xms.website.files.videos
+import xms.website.premium.page.premPg
 
 object MAPS {
 
@@ -32,26 +33,18 @@ object MAPS {
     @JvmStatic fun addMaps () : Unit {
 
 
-
+        // xMeerkat.com/<httpcode>
         addHTTPcodes()
+
+        // xMeerkat.com/discord
         addSocials()
 
 
-
-        // xMeerkat.com
-        mappings.addMap("GET", "/", object : AbstractResponse() {
-            override fun getResponse(req: Request): Response {
-
-                if (req.isPremiumReq) {
-                    println("[xMeerkat.com] Request is premium")
-                }
-
-                return index.response()
-            }
-        })
+        // xMeerkat.com/
+        index.map()
 
 
-        // xMeerkat.com/user/example
+        // xMeerkat.com/user/<username>
         ProfileRegistry.addProfiles()
 
 
@@ -64,8 +57,14 @@ object MAPS {
         })
 
 
-
+        // xMeerkat.com/videos/<videoid>
         VideoRegistry.addVideos()
+
+
+        // xMeerkat.com/premium
+        premPg.map()
+
+
 
     }
 

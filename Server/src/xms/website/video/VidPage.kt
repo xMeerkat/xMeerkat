@@ -6,21 +6,29 @@
 package xms.website.video
 
 import org.jetbrains.annotations.NotNull
+import xms.MAPS
+import xms.internal.AbstractResponse
+import xms.internal.Request
 import xms.internal.Response
 import xms.videos.Video
 import xms.videos.VideoList
 import xms.website.Construct
+import xms.website.files.videos
 import xms.website.global.A_lookingFor
 import java.io.FileReader
 
+/** The Video Page - /videos */
 object VidPage {
 
+    /** If the Video Page was mapped */
+    @JvmStatic var Mapped : Boolean = false
 
 
+    /** Non-compiled HTML contents of the base video */
     @JvmStatic val htmlContents : String = FileReader("video/video.html").readText()
 
 
-
+    /** Returns the minified  */
     @JvmStatic fun Compile (@NotNull video : Video) : String {
 
 
@@ -54,8 +62,6 @@ object VidPage {
 
         return Construct.CompileResp(this.Compile(video), "200 OK", "text/html", "no-cache")
     }
-
-
 }
 
 object Table {
