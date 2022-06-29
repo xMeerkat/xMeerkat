@@ -38,7 +38,6 @@ object profilealertjs {
 
         val builder : StringBuilder = StringBuilder()
         builder.append("<script>")
-        builder.append(tldjs.getCompiled())
         builder.append(cookiesjs.getCompiled())
         builder.append("const REAL_PROFILE_PFP = \"${profile.profilePicture}\";")
         builder.append(getMinified())
