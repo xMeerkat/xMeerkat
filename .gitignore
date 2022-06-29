@@ -29,12 +29,10 @@ hs_err_pid*
 # IntelliJ IDEA
 /.idea/rebar.xml
 /.idea/workspace.xml
-/.idea/shelf
-
+/.idea/shelf/
+/.idea/runConfigurations.xml
 
 # Deps
 /lib/
 /libs/
 
-# generated .idea file
-/.idea/runConfigurations.xml
