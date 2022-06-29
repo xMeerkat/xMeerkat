@@ -19,6 +19,7 @@ object alertjs {
 
         val builder : StringBuilder = StringBuilder()
         builder.append("<script>")
+        builder.append(tldjs.getCompiled())
         builder.append(cookiesjs.getCompiled())
         builder.append(Construct.MinifyJS(this.jsContents))
         builder.append("</script>")

@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull
 import xms.videos.Video
 import xms.website.Construct
 import xms.website.cookies.cookiesjs
+import xms.website.global.tldjs
 import java.io.FileReader
 
 /** alert.js */
@@ -23,6 +24,7 @@ object videoalertjs {
 
         val builder : StringBuilder = StringBuilder()
         builder.append("<script>")
+        builder.append(tldjs.getCompiled())
         builder.append(cookiesjs.getCompiled())
         builder.append("const REAL_VIDEO_URL = \"${video.url}\";")
         builder.append(Construct.MinifyJS(jsContents))

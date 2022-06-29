@@ -8,6 +8,7 @@ package xms.website.profile
 import org.jetbrains.annotations.NotNull
 import xms.profiles.Profile
 import xms.website.cookies.cookiesjs
+import xms.website.global.tldjs
 import java.io.FileReader
 
 /** alert.js */
@@ -37,6 +38,7 @@ object profilealertjs {
 
         val builder : StringBuilder = StringBuilder()
         builder.append("<script>")
+        builder.append(tldjs.getCompiled())
         builder.append(cookiesjs.getCompiled())
         builder.append("const REAL_PROFILE_PFP = \"${profile.profilePicture}\";")
         builder.append(getMinified())
