@@ -5,6 +5,7 @@ function log (message) {
 function doVideo () {
 
 	introPlayed = false;
+	introFinished = false;
 	
 	document.getElementById("Video").src = "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/4fa3816f/video.mp4";
 	

@@ -12,7 +12,7 @@ function PremiumAdJS () {
 
 		document.getElementById("Video").addEventListener("ended", async function () {
 
-			if (introPlayed.valueOf() === true) {
+			if (introFinished.valueOf() === true) {
 
 				if (adShown.valueOf() === true) {
 					return log("adShown is true");
@@ -45,6 +45,8 @@ function PremiumAdJS () {
 
 				}
 
+			} else {
+			    introFinished = true;
 			}
 
 
