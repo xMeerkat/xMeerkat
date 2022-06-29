@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull
 import xms.internal.Response
 import xms.profiles.Profile
 import xms.website.Construct
-import xms.website.global.A_lookingFor
+import xms.website.LookingFor
 import java.io.FileReader
 
 object ProfilePage {
@@ -36,7 +36,7 @@ object ProfilePage {
                 continue
             }
             else if (toR.startsWith("@java")) {
-                output.append(A_lookingFor.lf(toR, profile))
+                output.append(LookingFor.lf(toR, profile))
             } else {
                 output.append(toR)
             }

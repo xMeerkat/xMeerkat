@@ -49,8 +49,10 @@ public final class Video {
      */
     public final @NotNull String ID;
 
+    /** Is the video premium only? */
+    public final @NotNull Boolean premium;
 
-    public Video (@NotNull String title, @NotNull Profile author, @NotNull String url, @NotNull String description, @NotNull String date, @NotNull String ID, @NotNull Boolean ghost) {
+    public Video (@NotNull String title, @NotNull Profile author, @NotNull String url, @NotNull String description, @NotNull String date, @NotNull String ID, @NotNull Boolean premium, @NotNull Boolean ghost) {
 
         // Title Length must not be more than 100 characters
         if (title.length() > 100) {
@@ -85,6 +87,11 @@ public final class Video {
             this.ID = UUID.randomUUID().toString().substring(0, 8);
         }
 
+
+        // Premium video?
+        this.premium = premium;
+
+
         if (!ghost) {
 
             VideoMap.videos.put(this.ID, this);
@@ -106,6 +113,6 @@ public final class Video {
 
 
     public static Video empty () {
-        return new Video("Placeholder", Profile.empty(), "", "This video is a placehoder.", "", UUID.randomUUID().toString(), true);
+        return new Video("Placeholder", Profile.empty(), "", "This video is a placehoder.", "", UUID.randomUUID().toString(), false, true);
     }
 }

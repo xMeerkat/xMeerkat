@@ -23,6 +23,7 @@ public final class fast {
         String description;
         String date;
         String ID;
+        Boolean premium;
         Boolean ghost;
 
         // Title
@@ -52,10 +53,25 @@ public final class fast {
         // Video ID
         ID = id;
 
+
+        // Premium
+        try {
+            String prem = new Scanner(new URL("https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/videos/" + id + "/premium.txt").openStream(), StandardCharsets.UTF_8).useDelimiter("\\A").next();
+            if (prem.equals("true")) {
+                premium = true;
+            } else if (prem.equals("false")) {
+                premium = false;
+            } else {
+                premium = false;
+            }
+        } catch (Exception ignored) { premium = false; }
+
+
         // Ghost Video? (no-push)
         ghost = false;
 
-        new Video(title, author, url, description, date, ID, ghost).Push();
+        final Video push = new Video(title, author, url, description, date, ID, premium, ghost);
+        push.Push();
 
         return;
     }

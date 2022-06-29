@@ -11,7 +11,7 @@ import xms.internal.Request
 import xms.internal.Response
 import xms.videos.Video
 import xms.website.Construct
-import xms.website.global.A_lookingFor
+import xms.website.LookingFor
 import java.io.FileReader
 
 /** The homepage of xMeerkat - / */
@@ -43,7 +43,7 @@ object index {
                 continue
             }
             else if (toR.startsWith("@java")) {
-                output.append(A_lookingFor.lf(toR, Video.empty()))
+                output.append(LookingFor.lf(toR, Video.empty()))
             } else {
                 output.append(toR)
             }
