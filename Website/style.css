@@ -68,6 +68,10 @@ details {
     height: 100%;
 }
 
+.BlurryWhiteBoy {
+   text-shadow: 0 0 7px white;
+   color: transparent;
+}
 
 
 .WhiteBoy {

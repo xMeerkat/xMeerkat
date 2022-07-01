@@ -5,8 +5,7 @@
 
 package xms.website.global
 
-import xms.website.Construct
-import xms.website.cookies.cookiesjs
+import xms.Compiler.JSminifier.Compile as Compiler
 import java.io.FileReader
 
 /** tld.js */
@@ -18,7 +17,7 @@ object tldjs {
 
 
         val builder : StringBuilder = StringBuilder()
-        builder.append(Construct.MinifyJS(this.jsContents))
+        builder.append(Compiler(this.jsContents))
 
         return builder.toString()
     }

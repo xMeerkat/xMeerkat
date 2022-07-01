@@ -10,8 +10,8 @@ import xms.internal.Response
 import xms.videos.Video
 import xms.videos.VideoList
 import xms.website.Construct
-import xms.website.LookingFor
 import java.io.FileReader
+import xms.Compiler.Video.Compile as Compiler
 
 /** The Video Page - /videos */
 object VidPage {
@@ -24,39 +24,11 @@ object VidPage {
     @JvmStatic val htmlContents : String = FileReader("video/video.html").readText()
 
 
-    /** Returns the minified  */
-    @JvmStatic fun Compile (@NotNull video : Video) : String {
-
-
-        val output : StringBuilder = StringBuilder()
-        val ary : List<String> = this.htmlContents.split("\n")
-
-        output.append("<!-- Our software, xMeerkat, is open source at https://github.com/xMeerkat -->\n")
-
-        for (line in ary) {
-
-            val toR = line.replace("\n", "").replace("\t", "")
-
-            if (toR.replace(" ", "") == "") {
-                continue
-            }
-            else if (toR.startsWith("<!--") && toR.endsWith("-->")) {
-                continue
-            }
-            else if (toR.startsWith("@java")) {
-                output.append(LookingFor.lf(toR, video))
-            } else {
-                output.append(toR)
-            }
-        }
-
-        return output.toString()
-    }
 
 
     @JvmStatic fun response (@NotNull video : Video) : Response {
 
-        return Construct.CompileResp(this.Compile(video), "200 OK", "text/html", "no-cache")
+        return Construct.CompileResp(Compiler(video, htmlContents), "200 OK", "text/html", "no-cache")
     }
 }
 
@@ -105,5 +77,17 @@ object Table {
 
         return out.toString()
     }
+
+}
+
+object LackingPremium {
+
+    @JvmStatic val htmlContents : String = FileReader("premiumPage/needsPremiumVideo.html").readText()
+
+    @JvmStatic fun response (@NotNull video : Video) : Response {
+
+        return Construct.CompileResp(Compiler(video, htmlContents), "200 OK", "text/html", "no-cache")
+    }
+
 
 }

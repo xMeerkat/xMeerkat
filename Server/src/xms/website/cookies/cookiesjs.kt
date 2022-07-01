@@ -6,10 +6,10 @@
 package xms.website.cookies
 
 import org.jetbrains.annotations.NotNull
-import xms.website.Construct
 import java.net.URL
 import java.nio.charset.StandardCharsets
 import java.util.*
+import xms.Compiler.JSminifier.Compile as Compiler
 
 object cookiesjs {
 
@@ -18,6 +18,6 @@ object cookiesjs {
     @JvmStatic @NotNull val jsContents : String = Scanner(cookiesJsUrl.openStream(), StandardCharsets.UTF_8).useDelimiter("\\A").next()
 
     @JvmStatic fun getCompiled () : String {
-        return Construct.MinifyJS(jsContents)
+        return Compiler(jsContents)
     }
 }

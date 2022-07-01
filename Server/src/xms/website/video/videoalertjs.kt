@@ -7,9 +7,8 @@ package xms.website.video
 
 import org.jetbrains.annotations.NotNull
 import xms.videos.Video
-import xms.website.Construct
+import xms.Compiler.JSminifier.Compile as Compiler
 import xms.website.cookies.cookiesjs
-import xms.website.global.tldjs
 import java.io.FileReader
 
 /** alert.js */
@@ -26,8 +25,8 @@ object videoalertjs {
         builder.append("<script>")
         builder.append(cookiesjs.getCompiled())
         builder.append("const REAL_VIDEO_URL = \"${video.url}\";")
-        builder.append(Construct.MinifyJS(jsContents))
-        builder.append(Construct.MinifyJS(premiumAdJs))
+        builder.append(Compiler(jsContents))
+        builder.append(Compiler(premiumAdJs))
         builder.append("</script>")
 
         return builder.toString()

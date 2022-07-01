@@ -5,7 +5,7 @@
 
 package xms.website.global
 
-import xms.website.Construct
+import xms.Compiler.CSSminifier.Compile as Compiler
 import java.io.FileReader
 
 /** style */
@@ -17,7 +17,7 @@ object stylesheet {
 
         val output : StringBuilder = StringBuilder()
         output.append("<style>")
-        output.append(Construct.MinifyCSS(cssContents))
+        output.append(Compiler(cssContents))
         output.append("</style>")
 
         return output.toString()

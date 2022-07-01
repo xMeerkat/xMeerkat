@@ -19,7 +19,7 @@ import xms.website.video.videoalertjs
 object LookingFor {
 
 
-    fun lf (line: String, video : Video) : @NotNull String {
+    @JvmStatic fun lf (line: String, video : Video) : @NotNull String {
 
         val VIDEO : String = """
                 <h4 align="center">

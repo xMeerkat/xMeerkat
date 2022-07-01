@@ -11,6 +11,7 @@ import xms.internal.AbstractResponse;
 import xms.internal.Request;
 import xms.internal.Response;
 import xms.profiles.Profile;
+import xms.website.video.LackingPremium;
 import xms.website.video.VidPage;
 
 import java.net.URI;
@@ -106,7 +107,25 @@ public final class Video {
 
             @Override
             public Response getResponse(Request req) {
-                return VidPage.response(Video.this);
+
+                if (Video.this.premium) {
+
+
+                    if (req.isPremiumReq) {
+                        return VidPage.response(Video.this);
+                    } else {
+                        return LackingPremium.response(Video.this);
+                    }
+
+
+                } else {
+                    return VidPage.response(Video.this);
+                }
+
+
+
+
+
             }
         });
     }

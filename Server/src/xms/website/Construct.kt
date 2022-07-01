@@ -82,44 +82,6 @@ object Construct {
     }
 
 
-    /** Minify CSS to one line */
-    @JvmStatic fun MinifyCSS (@NotNull css : String) : String {
-
-        val output : StringBuilder = StringBuilder()
-        val ary : List<String> = css.split("\n")
-
-        for (line in ary) {
-
-            val toR = line.replace("\n", "").replace("\t", "")
-
-            if (toR.startsWith("/*") && toR.endsWith("*/")) {
-                continue
-            } else {
-                output.append(toR)
-            }
-        }
-
-        return output.toString()
-    }
 
 
-    /** Minify JavaScript to one line */
-    @JvmStatic fun MinifyJS (@NotNull js : String) : String {
-
-        val output : StringBuilder = StringBuilder()
-        val ary : List<String> = js.split("\n")
-
-        for (line in ary) {
-
-            val toR = line.replace("\n", "").replace("\t", "")
-
-            if ((toR.startsWith("/*") && toR.endsWith("*/")) || (toR.startsWith("//"))) {
-                continue
-            } else {
-                output.append(toR)
-            }
-        }
-
-        return output.toString()
-    }
 }
