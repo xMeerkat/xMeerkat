@@ -17,6 +17,9 @@ object Main {
     @JvmStatic fun main (args: Array<String>) : Unit {
 
         val killall : UncaughtExceptionHandler = UncaughtExceptionHandler { _, throwable ->
+
+            println(throwable.message)
+
             println("Uncaught exception: Doing killall")
             Runtime.getRuntime().exec("killall java")
         }

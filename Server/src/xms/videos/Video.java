@@ -94,7 +94,7 @@ public final class Video {
 
         if (!ghost) {
 
-            VideoMap.videos.put(this.ID, this);
+            VideoMap.put(this.ID, this);
 
             VideoList.videos.add(this);
         }

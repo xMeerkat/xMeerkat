@@ -10,7 +10,6 @@ import xms.internal.AbstractResponse
 import xms.internal.Mappings
 import xms.internal.Request
 import xms.internal.Response
-import xms.premium.pTokenStorage.isValidToken
 import xms.profiles.ProfileRegistry
 import xms.videos.VideoRegistry
 import xms.website.external.discord

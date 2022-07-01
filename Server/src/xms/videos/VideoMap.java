@@ -11,6 +11,14 @@ import java.util.HashMap;
 
 public final @NotNull class VideoMap {
 
-    public static final @NotNull HashMap<String, Video> videos = new HashMap<>();
+    private static final @NotNull HashMap<String, Video> videos = new HashMap<>();
+
+    public static void put (@NotNull String ID, @NotNull Video video) {
+        videos.put(ID, video);
+    }
+
+    public static @NotNull Video get (@NotNull String ID) {
+        return videos.getOrDefault(ID, Video.empty());
+    }
 
 }

@@ -10,7 +10,6 @@ import xms.profiles.Profile
 import xms.videos.Video
 import xms.website.cookies.cookiesjs
 import xms.website.global.*
-import xms.website.premium.js.paypalhtml
 import xms.website.profile.profileTable
 import xms.website.profile.profileWidget
 import xms.website.profile.profilealertjs
@@ -43,7 +42,6 @@ object LookingFor {
             "meta" -> meta.getCompiled()
             "style" -> stylesheet.getCompiled()
             "cjs" -> cookiesjs.getCompiled()
-            "paypal" -> paypalhtml.getCompiled()
 
             // VIDEO-SPECIFIC ONES:
             "video_title" -> video.title
@@ -80,7 +78,6 @@ object LookingFor {
             "meta" -> meta.getCompiled()
             "style" -> stylesheet.getCompiled()
             "cjs" -> cookiesjs.getCompiled()
-            "paypal" -> paypalhtml.getCompiled()
 
             // PROFILE-SPECIFIC ONES:
             "profile_username" -> profile.username
