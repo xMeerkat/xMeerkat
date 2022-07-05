@@ -14,12 +14,14 @@ import xms.website.profile.profileTable
 import xms.website.profile.profileWidget
 import xms.website.profile.profilealertjs
 import xms.website.video.Table
+import xms.website.video.VideoMetaTags
 import xms.website.video.videoalertjs
+import xms.website.video.videocontrolsjs
 
 object LookingFor {
 
 
-    @JvmStatic fun lf (line: String, video : Video) : @NotNull String {
+    @JvmStatic fun lf (line: @NotNull String,  video : @NotNull Video) : @NotNull String {
 
         val VIDEO : String = """
                 <h4 align="center">
@@ -39,9 +41,10 @@ object LookingFor {
             "footer" -> footer.getCompiled()
             "header" -> header.getCompiled()
             "alert" -> alertjs.getCompiled()
-            "meta" -> meta.getCompiled()
+            "meta" -> if (video == Video.empty()) { meta.getCompiled() } else { VideoMetaTags.GetMetaTags(video) }
             "style" -> stylesheet.getCompiled()
             "cjs" -> cookiesjs.getCompiled()
+            "video_controls" -> videocontrolsjs.getCompiled()
 
             // VIDEO-SPECIFIC ONES:
             "video_title" -> video.title
@@ -64,7 +67,7 @@ object LookingFor {
         }
     }
 
-    fun lf (line: String, profile : Profile) : @NotNull String {
+    @JvmStatic fun lf (line: @NotNull String, profile : @NotNull Profile) : @NotNull String {
 
 
 
@@ -78,6 +81,8 @@ object LookingFor {
             "meta" -> meta.getCompiled()
             "style" -> stylesheet.getCompiled()
             "cjs" -> cookiesjs.getCompiled()
+            "video_controls" -> videocontrolsjs.getCompiled()
+
 
             // PROFILE-SPECIFIC ONES:
             "profile_username" -> profile.username

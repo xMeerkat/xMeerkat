@@ -6,11 +6,12 @@
 package xms;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Unmodifiable;
 import xms.website.LookingFor;
 
 public final class Compiler {
 
-    public final static class Video {
+    public static final @NotNull @Unmodifiable class Video {
 
         public static @NotNull String Compile (@NotNull xms.videos.Video video, @NotNull String html) {
 
@@ -45,7 +46,7 @@ public final class Compiler {
 
     }
 
-    public final static class JSminifier {
+    public static final @NotNull @Unmodifiable class JSminifier {
 
         public static @NotNull String Compile (@NotNull String js) {
 
@@ -72,7 +73,7 @@ public final class Compiler {
 
     }
 
-    public final static class CSSminifier {
+    public static final @NotNull @Unmodifiable class CSSminifier {
 
         public static @NotNull String Compile (@NotNull String css) {
 
