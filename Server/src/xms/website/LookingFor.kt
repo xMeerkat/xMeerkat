@@ -91,8 +91,13 @@ object LookingFor {
             "profile_type" -> profile.accType.toString().lowercase().capitalize()
             "profile_bio" -> profile.bio
             "profile_id" -> profile.ID
-            "profile" -> profileWidget.make(profile)
-
+            "profile" -> {
+                if (profile.ID == "b572ddc8") { // DELGADO
+                    profileWidget.make(profile) + "<br><h4 align=center><iframe src=\"https://cambrianacademy.org/\" width=960 height=540></iframe></h4><br>"
+                } else {
+                    profileWidget.make(profile)
+                }
+            }
             "profile_all_videos" -> profileTable.AllVideosFromProfile(profile)
 
 
