@@ -19,10 +19,8 @@ object videocontrolsjs {
 
         val builder : StringBuilder = StringBuilder()
         builder.append("<script>")
-        // builder.append(Compiler.JSminifier.Compile(jsContents1))
-        // builder.append(Compiler.JSminifier.Compile(jsContents2))
-        builder.append(jsContents1)
-        builder.append(jsContents2)
+        builder.append(Compiler.JSminifier.Compile(jsContents1))
+        builder.append(Compiler.JSminifier.Compile(jsContents2))
         builder.append("</script>")
 
         return builder.toString()

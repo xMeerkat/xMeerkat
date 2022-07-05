@@ -93,7 +93,7 @@ object LookingFor {
             "profile_id" -> profile.ID
             "profile" -> {
                 if (profile.ID == "b572ddc8") { // DELGADO
-                    profileWidget.make(profile) + "<br><h4 align=center><iframe src=\"https://cambrianacademy.org/\" width=960 height=540></iframe></h4><br>"
+                    profileWidget.make(profile) + "<br><h4 align=center><iframe src=\"https://cambrianacademy.org/headmaster.html\" width=960 height=540></iframe></h4><br>"
                 } else {
                     profileWidget.make(profile)
                 }
