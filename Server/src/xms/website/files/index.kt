@@ -11,8 +11,8 @@ import xms.internal.Request
 import xms.internal.Response
 import xms.videos.Video
 import xms.website.Construct
-import xms.website.LookingFor
 import java.io.FileReader
+import xms.Compiler.Video.Compile as Compiler
 
 /** The homepage of xMeerkat - / */
 object index {
@@ -26,30 +26,7 @@ object index {
     /** @return Minified version of htmlContents and puts the @java items. */
     @JvmStatic fun Compile () : String {
 
-
-        val output : StringBuilder = StringBuilder()
-        val ary : List<String> = this.htmlContents.split("\n")
-
-        output.append("<!-- Our software, xMeerkat, is open source at https://github.com/xMeerkat -->\n")
-
-        for (line in ary) {
-
-            val toR = line.replace("\n", "").replace("\t", "")
-
-            if (toR.replace(" ", "") == "") {
-                continue
-            }
-            else if (toR.startsWith("<!--") && toR.endsWith("-->")) {
-                continue
-            }
-            else if (toR.startsWith("@java")) {
-                output.append(LookingFor.lf(toR, Video.empty()))
-            } else {
-                output.append(toR)
-            }
-        }
-
-        return output.toString()
+        return Compiler(Video.empty(), this.htmlContents)
     }
 
     /** @return Response to put on the mappings. */
