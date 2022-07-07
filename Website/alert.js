@@ -30,7 +30,7 @@ fetch(`https://raw.githubusercontent.com/xMeerkat/xMeerkat/master/Website/status
 			const Mix = Swal.mixin({
 				icon: "success",
 				showCancelButton: true,
-				toast: false,
+				toast: true,
 				confirmButtonText: "Proceed",
 				cancelButtonText: "I am not 18+",
 			});
