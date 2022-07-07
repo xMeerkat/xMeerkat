@@ -5,6 +5,8 @@
 
 package xms
 
+import org.jetbrains.annotations.NotNull
+import org.jetbrains.annotations.Unmodifiable
 import java.lang.Thread.UncaughtExceptionHandler
 import xms.premium.pTokenStorage.xin as InitPremiumTokens
 import xms.runners.Runner443 as Port443
@@ -13,8 +15,13 @@ import xms.runners.Runner80 as Port80
 
 object Main {
 
+    const val VERSION : @NotNull @Unmodifiable String = "0.0.2"
+
 
     @JvmStatic fun main (args: Array<String>) : Unit {
+
+        println("Running xMeerkat v$VERSION")
+
 
         val killall : UncaughtExceptionHandler = UncaughtExceptionHandler { _, throwable ->
 
