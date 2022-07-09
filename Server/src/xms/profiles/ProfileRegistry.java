@@ -16,6 +16,8 @@ public final class ProfileRegistry {
 
         normalAccs();
 
+        premiumAccs();
+
         verifiedAccs();
 
         verifiedMods();
@@ -77,6 +79,19 @@ public final class ProfileRegistry {
     private static void normalAccs() {
 
 
+
+    }
+
+    private static void premiumAccs() {
+
+        new Profile("ANYRING",
+                "ANYRING",
+                AccType.PREMIUM,
+                "meerkat lover \uD83D\uDE42 \nWITHOUT THE FACE",
+                "x561f2pa",
+                "https://raw.githubusercontent.com/xMeerkat/ugc-assets/master/assets/user/ANYRING/ANYRING.png",
+                false
+        ).Push();
 
     }
 
