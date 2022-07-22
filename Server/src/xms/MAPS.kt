@@ -63,6 +63,20 @@ object MAPS {
         // xMeerkat.com/premium
         premPg.map()
 
+        // xMeerkat.com/analytics
+        mappings.addMap("POST", "/analytics", object : AbstractResponse() {
+            override fun getResponse(req: Request): Response {
+
+                val builder : StringBuilder = StringBuilder()
+
+                builder.append(req.toString())
+
+                builder.append(req.getAttribute("ip"))
+
+                return Response("", "200 OK", "text/plain")
+            }
+        })
+
 
 
     }

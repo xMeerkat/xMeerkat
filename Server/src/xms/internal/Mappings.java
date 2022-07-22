@@ -32,7 +32,7 @@ public class Mappings {
     }
 
     public void addMap (String method, String url, String filepath, String code, String type) throws IOException {
-        urlMappings.put(method+"_"+url, new AbstractResponse() {
+        urlMappings.put(method + "_" +url, new AbstractResponse() {
             @Override
             public Response getResponse(Request req) {
                 StringBuilder res = new StringBuilder();

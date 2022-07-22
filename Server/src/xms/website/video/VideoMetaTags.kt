@@ -6,11 +6,18 @@
 package xms.website.video
 
 import xms.videos.Video
+import java.io.FileReader
 
 /** HTML Meta tags for video watch page */
 object VideoMetaTags {
 
     @JvmStatic fun GetMetaTags (video : Video) : String {
+
+        if (video == Video.empty()) {
+            return FileReader("global/global_meta.html").readText()
+        }
+
+
 
         val builder: StringBuilder = StringBuilder()
 
